@@ -4,92 +4,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-   h1 {text-align : center;}
-   table {
-      margin-left: auto; margin-right: auto   
-   }
-   #sy {
-      width : 350px; height:35px;
-   }
-   #i {
-      font-size : 20px;
-      
-   }
-   #emailbox {
-      width: 270px; height:35px;
-   }
-   #emailButton{
-   width:75px; height:40px;
-   }
-   div.header {
-   height: 50px;
-   width: 1000px;
-   margin-left: auto;
-   margin-right: auto;
-   background-color : skyblue;
-   font-size : 20px;
-   text-align: center;
-      }
-     div.content {
-  
-   width: 1000px;
-     margin-left: auto;
-   margin-right: auto;
-   margin-bottom : 16.8px;
-   background-color : skyblue;
-   font-size : 30px;
-   text-align: left;
-   font-family:"배달의민족 주아";
-     }
-   div.footer {
-   height: 50px;
-   width: 1000px;
-   margin-left: auto;
-   margin-right: auto;
-   background-color : skyblue;
-   font-size : 20px;
-   text-align: center;
-   }
-   #joinB {
-      width:350px;
-      height:55px;
-      margin-bottom:30px;
-      margin-top:0;
-      font-size:30px;
-      font-family:"배달의민족 주아";
-      
-   }
-</style>
+<link rel="stylesheet" href="./css/mainPageStyle.css">
+<link rel="stylesheet" href="./css/registFormStyle.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<meta charset="UTF-8">
+<title>회원가입 폼 - 조건 불만족 시</title>
+<script type="text/javascript" src="registScript.js"></script>
 </head>
-<script>
-   function confirmId(){
-      url="confirmId.jsp?id=" + document.registForm.id.value
-    		  +"&idvalidation=" +document.registForm.idvalidation.value;
-      open(url, "confirm",
-            "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=200");
-   }
-   function checkEmail() {
-	   	url="emailSendAction.jsp?email=" + document.registForm.email.value;
- 		open(url, "emailsend",
-       "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=200");
-   }
-   function checkEmailCode() {
-	   	url="emailCodeCheck.jsp?usercode=" + document.registForm.usercode.value;
-		open(url, "emailsend",
-      "toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=200");
-  }
-</script>
+<!-- 아이디 중복확인, 이메일 전송, 이메일 본인인증 click script 파일 -->
+<script type="text/javascript" src="registScript.js"></script>
 <body>
+<jsp:include page="menubar.jsp"></jsp:include>
 <jsp:useBean class="vo.RegistInfoBean" id="userinfo" scope="session" />
 <form action="userInfoStore.jsp" name="registForm" method="post"> 
-<div class="header">logo</div>
-<div class="content">
-<table>
-   
-   <h1>회원가입</h1>
+<div class="contents">
+<table> 
+	<tr>
+   	<td colspan="2" style="font-family:Rix고딕 H;text-align:center;font-size:30px;padding-bottom:30px;">Sing Up<br></td>
+   </tr>
    
    <tr>
       <td colspan="2" id="i" >아이디</td>
@@ -162,8 +99,7 @@
 
 </table>
 </div>
-<div class="footer">footer</div>
 </form>
-
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

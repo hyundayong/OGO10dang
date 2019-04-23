@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, intial-scale=1">
@@ -13,185 +12,97 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 <!-- Bootstrap4 -->
 <link rel="stylesheet" href="./css/surveyForm.css">
-<style type="text/css">
-
-   .ul1 {
-   
-      margin-left: auto;
-      margin-right: auto;
-      vertical-align: bottom;
-      
-   }
-   .li1 {
-      padding: 0px 30px;
-      font-size: 30px;
-   }
-   
-   .content {
-      text-align: center;
-      padding: 10px;
-      min-height: calc(100vh - 20px);
-      <!--background-color: skyblue;-->
-   }
-   body {
-      width: auto;
-      margin: 200px;
-      
-   }
-   
-   .footer {
-      background-color: white;
-      text-align: center;
-      padding: 10px;
-      margin: 100px;
-      height: 20px; 
-      
-   }
-   #inputposition {
-      position: relative;
-      left: 215px;
-   }
-   .jumbotron {
-      padding: 10px;
-      margin: 0px;
-   }
-   .wid {
-   position:fixed; top:75px; left: 610px;
-   font-size: 20px;
-   
-   
-   }
-   ul2 {
-      background-color: #ccc;
-   }
-   .mansurveyForm {
-   }
-   label {
-      min-width: 100px;
-   }
-   fieldset{
-    border: 1px groove #ddd !important;
-    padding: 0 1.4em 1.4em 1.4em !important;
-    margin: 0 0 1.5em 0 !important;
-    -webkit-box-shadow:  0px 0px 0px 0px #000;
-            box-shadow:  0px 0px 0px 0px #000;
-   }
-   legend {
-    width:inherit; /* Or auto */
-    padding:0 10px; /* To give a bit of padding on the left and right */
-    border-bottom:none;
-   }
-</style>
-
-
-<title>Ã¼Çü Á¤º¸ ÀÔ·Â ÆäÀÌÁö</title>
+<title>ì²´í˜• ì •ë³´ ì…ë ¥ í˜ì´ì§€</title>
 
 </head>
 <body>
-   <div>
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-         <ul class="navbar-nav navbar-left">
-            <img src="image/·Î°íÀÌ¹ÌÁö.PNG" alt="Logo"  onClick="location.href='mainPage.jsp';" style="width:150px; height: 60px;">
-         </ul>
-         <ul class="navbar-nav ul1">
-            <li class="nav-item li1">
-               <a class="nav-link" href="#">Ã¼ÇüºĞ¼®</a>           
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> °ü¸® </a>   
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> »ó¼¼ </a>   
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> ¼îÇÎ </a>   
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> ¹®ÀÇ </a>   
-            </li>
-         </ul>
-         <!-- ·Î±×ÀÎ µÇ¾úÀ»¶§¸¸ ÀÌÆäÀÌÁö ¿Àµµ·Ï ÁöÁ¤ -->
-      </nav>
-      <nav class="navbar navbar-expand-sm bg-red navbar-red wid">
-         <ul class="navbar-nav ul1 ">
-            <li class="nav-item">
-               <a class="nav-link " href="#" >ÀÌ¿ë¾È³»</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link " href="#">¼³¹®Á¶»ç</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link " href="#">ÀÌ¿ë¾È³»</a>
-            </li>
-            
-         </ul>   
-      </nav>
-   </div>
-   <div class="mansurveyForm">
+   <jsp:include page="menubar.jsp"></jsp:include>
+    <div class="mansurveyForm">
          <form action="manSurveyForm.pre" method="POST">
             <fieldset>
-               <legend>±âº» Á¤º¸</legend>
-               <label for="name">ÀÌ¸§</label>
-                  <input type="text" name="name" id="name" required /><br><br>
-               <label for="gender">¼ºº°</label>
-                  <input type="radio" name="gender" value="man" checked> ³²ÀÚ 
-                   <input type="radio" name="gender" value="woman" disabled> ¿©ÀÚ<br><br>
-               <label for="age">³ªÀÌ</label>
-                  <input type="number" name="age" id="age" min="1" max="150" required/><br><br>
-               <label for="height">Å°</label>
-                  <input type="number" name="height" id="height" min="0" required /> ( cm )<br><br>
-               <label for="weight">¸ö¹«°Ô</label>
-                  <input type="number" name="weight" id="weight" min="0" required/> ( kg )<br><br>
+               <legend>ê¸°ë³¸ ì •ë³´</legend>
+               <table>
+                  <tr><td class="labelwidth"><label for="name">ì´ë¦„</label></td>
+                  <td><input type="text" name="name" id="name" required /></td></tr>
+                  <tr><td class="labelwidth"><label for="gender">ì„±ë³„</label></td>
+                  <td><input type="radio" name="gender" value="man" checked> ë‚¨ì&nbsp;&nbsp;
+                  <input type="radio" name="gender" value="woman" disabled> ì—¬ì</td></tr>
+                  <tr><td class="labelwidth"><label for="age">ë‚˜ì´</label></td>
+                  <td><input type="number" name="age" id="age" min="1" max="150" required/></td></tr>
+                  <tr><td class="labelwidth"><label for="height">í‚¤</label></td>
+                  <td><input type="number" name="height" id="height" min="0" style="display: inline;" required /></td>
+                  <td>&nbsp;( cm )</td></tr>
+                  <tr><td class="labelwidth"><label for="weight">ëª¸ë¬´ê²Œ</label></td>
+                  <td><input type="number" name="weight" id="weight" min="0" required/></td>
+                  <td>&nbsp;( kg )</td></tr>
+               </table>
+
             </fieldset>
             
             <fieldset>
-               <legend>°Ç°­ & ¿îµ¿ Á¤º¸</legend>
-            Èí¿¬ À¯¹« : <input type="radio" name="smoke" value="y" checked/> Èí¿¬
-             <input type="radio" name="smoke" value="n" /> ºñÈí¿¬<br><br>
-            À½ÁÖ È½¼ö : <input type="radio" name="drink" value="1" checked/> ÇÑ´Ş 0 ~ 2È¸
-             <input type="radio" name="drink" value="2" /> ÇÑ´Ş 3 ~ 5È¸
-             <input type="radio" name="drink" value="3" /> ÀÏÁÖÀÏ 2 ~ 3È¸
-             <input type="radio" name="drink" value="4" /> ¸ÅÀÏ<br><br>
-            ¿îµ¿ ´É·Â : <input type="radio" name="exercise" value="1" checked/> È°µ¿ ÀûÀ½
-             <input type="radio" name="exercise" value="2" /> ¾à°£ È°µ¿Àû
-             <input type="radio" name="exercise" value="3" /> È°µ¿Àû
-             <input type="radio" name="exercise" value="4" /> ¸Å¿ì È°µ¿Àû<br><br>
-            ¿îµ¿ ¸ñÀû : <input type="radio" name="purpose" value="diet" checked/> ´ÙÀÌ¾îÆ®
-             <input type="radio" name="purpose" value="health" /> Ã¼·ÂÁõÁø
-             <input type="radio" name="purpose" value="muscle" /> ±Ù·ÂÁõ°¡<br><br><br>
-            
+               <legend>ê±´ê°• & ìš´ë™ ì •ë³´</legend>
+                  <table>
+                  <tr><td class="labelwidth"><label for="smoke">í¡ì—° ìœ ë¬´</label></td>
+                     <td><input type="radio" name="smoke" value="y" checked/> í¡ì—°</td>
+                     <td><input type="radio" name="smoke" value="n" /> ë¹„í¡ì—°</td></tr>
+                  <tr><td class="labelwidth"><label for="drink">ìŒì£¼ íšŸìˆ˜</label></td>
+                     <td><input type="radio" name="drink" value="1" checked/> í•œë‹¬ 0 ~ 2íšŒ</td>
+                     <td><input type="radio" name="drink" value="2" /> í•œë‹¬ 3 ~ 5íšŒ</td>
+                     <td><input type="radio" name="drink" value="3" /> ì¼ì£¼ì¼ 2 ~ 3íšŒ</td>
+                     <td><input type="radio" name="drink" value="4" /> ë§¤ì¼</td></tr>
+                  <tr><td rowspan="4" class="labelwidth"><label for="exercise">ìš´ë™ ëŠ¥ë ¥</label></td>
+                     <td><input type="radio" name="exercise" value="1" checked/> í™œë™ ì ìŒ </td>
+                     <td>(ì¼ë°˜ì ì¸ í•˜ë£¨ í™œë™)</td></tr>
+                  <tr><td><input type="radio" name="exercise" value="2" /> ì•½ê°„ í™œë™ì  </td>
+                     <td colspan="3">(ì ë‹¹í•œ ìš´ë™ í•˜ë£¨ 30~60ë¶„)</td></tr>
+                  <tr><td><input type="radio" name="exercise" value="3" /> í™œë™ì  </td>
+                     <td colspan="3">(ì ë‹¹í•œ ìš´ë™ 60ë¶„ ì´ìƒ)</td></tr>
+                  <tr><td><input type="radio" name="exercise" value="4" /> ë§¤ìš° í™œë™ì </td>
+                     <td colspan="3">(ê³ ê°•ë„ ìš´ë™ 60ë¶„ ì´ìƒ)</td></tr>
+                  <tr><td class="labelwidth"><label for="purpose">ìš´ë™ ëª©ì </label></td>
+                     <td><input type="radio" name="purpose" value="diet" checked/> ë‹¤ì´ì–´íŠ¸</td>
+                     <td><input type="radio" name="purpose" value="health" /> ì²´ë ¥ì¦ì§„</td>
+                     <td><input type="radio" name="purpose" value="muscle" /> ê·¼ë ¥ì¦ê°€</td>
+                  </tr>
+                  
+                  </table>
             </fieldset>
             
             <fieldset>
-               <legend>Ã¼Çü Á¤º¸</legend>
-            ÆÈ : <input type="radio" name="arm" value="1" checked/> ¸¶¸§
-             <input type="radio" name="arm" value="2" /> º¸Åë
-             <input type="radio" name="arm" value="3" /> Áö¹æÇü
-             <input type="radio" name="arm" value="4" /> ±ÙÀ°Çü<br><br>
-            °¡½¿ : <input type="radio" name="chest" value="1" checked/> ¸¶¸§
-             <input type="radio" name="chest" value="2" /> º¸Åë
-             <input type="radio" name="chest" value="3" /> Áö¹æÇü
-             <input type="radio" name="chest" value="4" /> ±ÙÀ°Çü<br><br>
-            ¾î±ú : <input type="radio" name="shoulder" value="1" checked/> Á¼ÀºÆí
-             <input type="radio" name="shoulder" value="2" /> º¸Åë
-             <input type="radio" name="shoulder" value="3" /> ³ĞÀºÆí<br><br>
-            º¹ºÎ : <input type="radio" name="belly" value="1" checked/> ¸¶¸§
-             <input type="radio" name="belly" value="2" /> º¸Åë
-             <input type="radio" name="belly" value="3" /> Áö¹æÇü
-             <input type="radio" name="belly" value="4" /> ±ÙÀ°Çü<br><br>
-            ÇÏÃ¼ : <input type="radio" name="leg" value="1" checked/> ¸¶¸§
-             <input type="radio" name="leg" value="2" /> º¸Åë
-             <input type="radio" name="leg" value="3" /> Áö¹æÇü
-             <input type="radio" name="leg" value="4" /> ±ÙÀ°Çü<br><br>
-             <input type="submit" value="Á¦Ãâ">&nbsp;&nbsp;
-             <input type="reset" value="´Ù½Ã¾²±â"/>
+               <legend>ì²´í˜• ì •ë³´</legend>
+               <table>
+                  <tr><td class="labelwidth"><label for="arm">íŒ”</label></td>
+                     <td><input type="radio" name="arm" value="1" checked/> ë§ˆë¦„</td>
+                     <td><input type="radio" name="arm" value="2" /> ë³´í†µ</td>
+                     <td><input type="radio" name="arm" value="3" /> ì§€ë°©í˜•</td>
+                     <td><input type="radio" name="arm" value="4" /> ê·¼ìœ¡í˜•</td></tr>
+                  <tr><td class="labelwidth"><label for="chest">ê°€ìŠ´</label></td>
+                     <td><input type="radio" name="chest" value="1" checked/> ë§ˆë¦„</td>
+                     <td><input type="radio" name="chest" id="chest2" value="2" /> <label for="chest2">ë³´í†µ</label></td>
+                     <td><input type="radio" name="chest" value="3" /> ì§€ë°©í˜•</td>
+                     <td><input type="radio" name="chest" value="4" /> ê·¼ìœ¡í˜•</td></tr>
+                  <tr><td class="labelwidth"><label for="shoulder">ì–´ê¹¨</label></td>
+                     <td><input type="radio" name="shoulder" value="1" checked/> ì¢ì€í¸</td>
+                     <td><input type="radio" name="shoulder" value="2" /> ë³´í†µ</td>
+                     <td><input type="radio" name="shoulder" value="3" /> ë„“ì€í¸</td></tr>
+                  <tr><td class="labelwidth"><label for="belly">ë³µë¶€</label></td>
+                     <td><input type="radio" name="belly" value="1" checked/> ë§ˆë¦„</td>
+                     <td><input type="radio" name="belly" value="2" /> ë³´í†µ</td>
+                     <td><input type="radio" name="belly" value="3" /> ì§€ë°©í˜•</td>
+                     <td><input type="radio" name="belly" value="4" /> ê·¼ìœ¡í˜•</td></tr>
+                  <tr><td class="labelwidth"><label for="leg">í•˜ì²´</label></td>
+                     <td><input type="radio" name="leg" value="1" checked/> ë§ˆë¦„</td>
+                     <td><input type="radio" name="leg" value="2" /> ë³´í†µ</td>
+                     <td><input type="radio" name="leg" value="3" /> ì§€ë°©í˜•</td>
+                     <td><input type="radio" name="leg" value="4" /> ê·¼ìœ¡í˜•</td></tr>
+               </table>
              </fieldset>
+             <div class="buttons">
+                <input id="submitButton" type="submit" value="ì œì¶œ">&nbsp;&nbsp;
+                <input id="resetButton" type="reset" value="ë‹¤ì‹œì“°ê¸°"/>
+             </div>
          </form>
    </div>
-   <div class="footer">
-      
-         <p>ÀÌ¿ë¾à°ü | °³ÀÎÁ¤º¸Ã³¸®¹æÄ§ | ÀúÀÛ±Ç | °í°´¼¾ÅÍ</p>
-      </div>
-
+  <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

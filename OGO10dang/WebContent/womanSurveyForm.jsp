@@ -10,61 +10,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<script src=surveyScript.js"></script>
 <!-- Bootstrap4 -->
 <link rel="stylesheet" href="./css/surveyForm.css">
-<style type="text/css">
-
-   .ul1 {
-   
-      margin-left: auto;
-      margin-right: auto;
-      vertical-align: bottom;
-      
-   }
-   .li1 {
-      padding: 0px 30px;
-      font-size: 30px;
-   }
-   
-   .content {
-      text-align: center;
-      padding: 10px;
-      min-height: calc(100vh - 20px);
-      <!--background-color: skyblue;-->
-   }
-   body {
-      width: auto;
-      margin: 200px;      
-   }
-   
-   .footer {
-      background-color: white;
-      text-align: center;
-      padding: 10px;
-      margin: 100px;
-      height: 20px; 
-      
-   }
-   #inputposition {
-      position: relative;
-      left: 215px;
-   }
-   .jumbotron {
-      padding: 10px;
-      margin: 0px;
-   }
-   .wid {
-   position:fixed; top:75px; left: 700px;
-   margin-left: auto;
-    margin-right: auto;
-   font-size: 20px;
-   }
-   .ul2 {
-    
-         background-color: white;
-   }
-</style>
-
 
 <title>체형 정보 입력 페이지</title>
 
@@ -100,7 +48,7 @@
                <a class="nav-link " href="#" >이용안내</a>
             </li>
             <li class="nav-item">
-               <a class="nav-link " href="#">설문조사</a>
+               <a class="nav-link " href="#" onclick="loginCheck('<%=(String)session.getAttribute("id")%>')">설문조사</a>
             </li>
             <li class="nav-item">
                <a class="nav-link " href="#">결과보기</a>
@@ -109,7 +57,7 @@
          </ul>   
       </nav>
    </div>
-   <div class="mansurveyForm">
+   <div class="womansurveyForm">
          <form action="womanSurveyForm.pre" method="POST">
             <fieldset>
                <legend>기본 정보</legend>
@@ -189,9 +137,10 @@
                      <td><input type="radio" name="hip" value="3" /> 지방형</td>
                      <td><input type="radio" name="hip" value="4" /> 근육형</td></tr>
                </table>
+               
              </fieldset>
              <div class="buttons">
-                <input id="submitButton" type="submit" value="제출">&nbsp;&nbsp;
+                <input id="submitButton" type="submit" value="제출" >&nbsp;&nbsp;
                 <input id="resetButton" type="reset" value="다시쓰기"/>
              </div>
          </form>

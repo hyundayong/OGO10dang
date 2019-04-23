@@ -5,202 +5,24 @@
 <head>
 
 <style>
-
-form { 
-        margin: 0 auto; 
+	form { 
+        margin: 0 auto;
+        margin-top: 150px;
+        margin-bottom: 100px;
         width:250px;
     } 
-   #textarea {
-      margin-top : 10px;
-      border:1px solid black;
-      padding: 10px 0px;
-      font-family:"Rix도쿄감성";
-     font-size:17px;
-   }
-    .header {
-      background-color: white;
-
-      padding: 20px;
-      margin: 50px;
-      }
-      .contents {
-
-     margin-left: auto;
-   margin-right: auto;
-   margin-bottom : 26.8px;
-   
-   background-color :white;
-     }
-       .footer {
-      background-color: white;
-      text-align: center;
-      padding: 10px;
-      
-   }
-   .checkbox-circle {
-     }
-   
-/* The container */
-.container {
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 5px;
-  margin-top:12px;
-  cursor: pointer;
-  font-size: 20px;
-  font-family:"배달의민족 주아";
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Hide the browser's default checkbox */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #ffeae5;
-  margin-bottom:15px;
-}
-
-/* Create a custom checkbox */
-.checkmarkLarge {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 30px;
-  width: 30px;
-  background-color: #ffeae5;
-  margin-top:3px;
-  margin-bottom:5px;
-}
-
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #fff6f4;
-}
-
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmarkLarge {
-  background-color: #fff6f4;
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #fff6f4;
-}
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmarkLarge {
-  background-color: #fff6f4;
-}
-
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmarkLarge:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-.container input:checked ~ .checkmarkLarge:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.container .checkmark:after {
-  left: 7px;
-  top: 3px;
-  width: 5px;
-  height: 10px;
-  border: solid #38618F;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-/* Style the checkmark/indicator */
-.container .checkmarkLarge:after {
-  left: 9px;
-  top: 4px;
-  width: 8px;
-  height: 14px;
-  border: solid #38618F;
-  border-width: 0 5px 5px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-#cancleButton {
-  background-color: #C7C5B8;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  font-size: 25px;
-  font-family:"배달의민족 도현";
-  margin: 4px 2px;
-  opacity: 1;
-  transition: 0.3s;
-  display: inline-block;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-#nextButton {
-  background-color: #FF6745;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  font-size: 25px;
-  font-family:"배달의민족 도현";
-  margin: 4px 2px;
-  opacity: 1;
-  transition: 0.3s;
-  display: inline-block;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-#nextButton:hover {
-color:black;
-}
-#cancleButton:hover {
-color:black;
-
-}
-.bottomButton {
-	text-align:center;
-	margin-top:15px;
-}
-
 </style>
+<link rel="stylesheet" href="./css/registrationTermsStyle.css">
+<link rel="stylesheet" href="./css/mainPageStyle.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+<title>회원 가입 약관 페이지</title>
 
 
 </head>
@@ -209,38 +31,37 @@ color:black;
    function backToMain(){
       document.location.href='mainPage.jsp';
    }
-	function checkAll() {
-		var inputs = document.getElementsByTagName("input");
-		for (var i = 0; i < inputs.length; i++) {
-			if (inputs[i].type == "checkbox") {
-				if (inputs[0].checked == true) {
-					inputs[i].checked = true;
-				} else if (inputs[0].checked == false) {
-					inputs[i].checked = false;
-				}
-			}
-		}
-	}
+   function checkAll() {
+      var inputs = document.getElementsByTagName("input");
+      for (var i = 0; i < inputs.length; i++) {
+         if (inputs[i].type == "checkbox") {
+            if (inputs[0].checked == true) {
+               inputs[i].checked = true;
+            } else if (inputs[0].checked == false) {
+               inputs[i].checked = false;
+            }
+         }
+      }
+   }
 
 </script>
 
-<body >
-<form style="width: 500px;" action="terms.member" method="post"> 
-   <div class="header"> <img src="image/logoimage.png" alt="Logo"  onClick="location.href='mainPage.jsp'"/></div>
+<body>
+	<jsp:include page="menubar.jsp"></jsp:include>
+	<form style="width: 500px;" action="terms.member" method="post"> 
+   	<div class="contents">
    
-   <div class="contents">
-   
-   <label class="container">
-      <input type="checkbox" onClick="checkAll()" /><h4 style="padding-left:7px">이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택),<br/>프로모션 안내 메일 수신(선택)에 모두 동의합니다.</h2>
-	  <span class="checkmarkLarge"></span>
+   <label class="termscontainer">
+      <input type="checkbox" onClick="checkAll()" /><h5 style="padding-left:20px;color:#12406a;"><b>이용약관, 개인정보 수집 및 이용, 위치정보 이용약관(선택), 프로모션 안내 메일 수신(선택)에 모두 동의합니다.</b></h5>
+     <span class="checkmarkLarge"></span>
    </label>
-	
-	<label class="container">
-		<input type="checkbox" name="requiredTerms1" value="1">이용약관 동의(필수)<br>
-		<span class="checkmark"></span>
-	</label>
-	
-    <div id="textarea" style="overflow:auto; width:500px; height:100px;">
+   
+   <label class="termscontainer">
+      <input type="checkbox" name="requiredTerms1" value="1">&nbsp;&nbsp;&nbsp;<b>이용약관 동의(필수)</b><br>
+      <span class="checkmark"></span>
+   </label>
+   
+    <div id="textarea" style="overflow:auto; width:500px; height:130px;">
    <b>제1조(목적)</b><br>
 이 약관은 힐링메뉴(전자상거래 사업자)가 운영하는 힐링메뉴사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리?의무 및 책임사항을 규정함을 목적으로 합니다.<br>
 
@@ -271,12 +92,12 @@ color:black;
 ⑥ 이 약관에서 정하지 아니한 사항과 이 약관의 해석에 관하여는 전자상거래등에서의소비자보호에관한법률, 약관의규제등에관한법률, 공정거래위원회가 정하는 전자상거래등에서의소비자보호지침 및 관계법령 또는 상관례에 따릅니다.<br>
 
     </div>
-   <label class="container">
-    	<input  type="checkbox" name="requiredTerms2" value="2">개인정보 수집 및 이용 동의(필수)<br>
-   		<span class="checkmark"></span>
+   <label class="termscontainer">
+       <input  type="checkbox" name="requiredTerms2" value="2">&nbsp;&nbsp;&nbsp;<b>개인정보 수집 및 이용 동의(필수)</b><br>
+         <span class="checkmark"></span>
    </label>
    
-    <div id="textarea" style="overflow:auto; width:500px; height:100px;">
+    <div id="textarea" style="overflow:auto; width:500px; height:130px;font-family:나눔바른고딕;">
     <b>개인정보 수집 및 이용 동의 </b><br>  수집하는 개인정보 항목<br>
 회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다. <br> 
 ο 수집항목 : 이름 , 생년월일 , 성별 , 로그인ID , 비밀번호 , 비밀번호 질문과 답변 , 자택 전화번호 , 자택 주소 , 휴대전화번호 , 이메일 , 직업 , 회사명 , 부서 , 직책 , 회사전화번호 , 취미 , 결혼여부 , 기념일 , 법정대리인정보 , 주민등록번호 , 서비스 이용기록 , 접속 로그 , 접속 IP 정보 , 결제기록
@@ -296,12 +117,12 @@ color:black;
 회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다. <br>
  
     </div>
-    <label class="container">
-      <input type="checkbox" name="terms3" value="3">개인정보 취급 위탁 동의(선택)<br>
-    	<span class="checkmark"></span>
+    <label class="termscontainer">
+      <input type="checkbox" name="terms3" value="3">&nbsp;&nbsp;&nbsp;<b>개인정보 취급 위탁 동의(선택)</b><br>
+       <span class="checkmark"></span>
     </label>
   
-    <div id="textarea" style="overflow:auto; width:500px; height:100px;">
+    <div id="textarea" style="overflow:auto; width:500px; height:130px;font-family:나눔바른고딕;margin-bottom:10px;">
     <b>아래 내용의 동의 여부는 회원가입에 영향을 미치지 않습니다. 단, 동의 거부시 서비스 이용에 제한이 있을 수 있습니다.</b><br>
     수집한 개인정보의 위탁<br>
  회사는 서비스 이행을 위해 아래와 같이 외부 전문업체에 위탁하여 운영하고 있습니다.<br>
@@ -310,22 +131,18 @@ o 위탁업무 내용 : [고객 이름 / 주소 / 연락처 / 특이사항 배�
 - 위탁업무의 내용: 고객영양상담 및 배송 기록 관리<br>
 
 </div>
- 	
- 	<label class="container">
- 	 <input type="checkbox" name="terms4" value="4">이벤트 등 프로모션 알림 수신(선택)<br>
- 	<span class="checkmark"></span>
- 	</label>
     
-     <div class="bottomButton">
-     <input id="cancleButton" type="button" value="동의안함" onclick="backToMain()";>&nbsp;&nbsp;&nbsp;<input id="nextButton"  type="submit" value="가입하기">
-	</div>
+    <label class="termscontainer">
+     <input type="checkbox" name="terms4" value="4">&nbsp;&nbsp;&nbsp;<b>이벤트 등 프로모션 알림 수신(선택)</b><br>
+    <span class="checkmark"></span>
+    </label>
     
-    
-   </div>
-     <div class="footer">
-    <p>이용약관 | 개인정보처리방침 | 저작권 | 고객센터</p>
-     </div>
-</form>
-
+    <div class="bottomButton">
+    <input id="cancleButton" type="button" value="동의안함" onclick="backToMain()";>&nbsp;&nbsp;&nbsp;<input id="nextButton"  type="submit" value="가입하기">
+   	</div>
+   	</div>
+   	</form>
+     
+   <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

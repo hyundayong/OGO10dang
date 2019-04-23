@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,44 +72,44 @@
 	<div>
       <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
          <ul class="navbar-nav navbar-left">
-            <img src="image/·Î°íÀÌ¹ÌÁö.PNG" alt="Logo"  onClick="location.href='mainPage.jsp';" style="width:150px; height: 60px;">
+            <img src="image/ë¡œê³ ì´ë¯¸ì§€.PNG" alt="Logo"  onClick="location.href='mainPage.jsp';" style="width:150px; height: 60px;">
          </ul>
          <ul class="navbar-nav ul1">
             <li class="nav-item li1">
-               <a class="nav-link" href="#">Ã¼ÇüºÐ¼®</a>           
+               <a class="nav-link" href="#">ì²´í˜•ë¶„ì„</a>           
             </li>
             <li class="nav-item li1">
-               <a class="nav-link" href="#"> °ü¸® </a>   
+               <a class="nav-link" href="#"> ê´€ë¦¬ </a>   
             </li>
             <li class="nav-item li1">
-               <a class="nav-link" href="#"> »ó¼¼ </a>   
+               <a class="nav-link" href="#"> ìƒì„¸ </a>   
             </li>
             <li class="nav-item li1">
-               <a class="nav-link" href="#"> ¼îÇÎ </a>   
+               <a class="nav-link" href="#"> ì‡¼í•‘ </a>   
             </li>
             <li class="nav-item li1">
-               <a class="nav-link" href="#"> ¹®ÀÇ </a>   
+               <a class="nav-link" href="#"> ë¬¸ì˜ </a>   
             </li>
          </ul>
          <ul class="navbar-nav navbar-right">
             <li class="nav-item">
-               <a class="nav-link" href="#" >·Î±×ÀÎ</a>   
+               <a class="nav-link" href="#" >ë¡œê·¸ì¸</a>   
             </li>
             <li class="nav-item">
-               <a class="nav-link" href="#" onClick="location.href='registForm.jsp';">È¸¿ø°¡ÀÔ</a>   
+               <a class="nav-link" href="#" onClick="location.href='registForm.jsp';">íšŒì›ê°€ìž…</a>   
             </li>
          </ul>
       </nav>
       <nav class="navbar navbar-expand-sm bg-red navbar-red wid">
       	<ul class="navbar-nav ul1 ">
       		<li class="nav-item">
-      			<a class="nav-link " href="#" >ÀÌ¿ë¾È³»</a>
+      			<a class="nav-link " href="#" >ì´ìš©ì•ˆë‚´</a>
       		</li>
       		<li class="nav-item">
-      			<a class="nav-link " href="#">¼³¹®Á¶»ç</a>
+      			<a class="nav-link " href="#">ì„¤ë¬¸ì¡°ì‚¬</a>
       		</li>
       		<li class="nav-item">
-      			<a class="nav-link " href="#">ÀÌ¿ë¾È³»</a>
+      			<a class="nav-link " href="#">ì´ìš©ì•ˆë‚´</a>
       		</li>
       		
       	</ul>
@@ -123,7 +123,7 @@
    </div>
    <div class="footer">
       
-         <p>ÀÌ¿ë¾à°ü | °³ÀÎÁ¤º¸Ã³¸®¹æÄ§ | ÀúÀÛ±Ç | °í°´¼¾ÅÍ</p>
+         <p>ì´ìš©ì•½ê´€ | ê°œì¸ì •ë³´ì²˜ë¦¬ë°©ì¹¨ | ì €ìž‘ê¶Œ | ê³ ê°ì„¼í„°</p>
       </div>
 
 </body>
