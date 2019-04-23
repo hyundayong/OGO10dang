@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -98,6 +98,6 @@
          <p>이용약관 | 개인정보처리방침 | 저작권 | 고객센터</p>
       </div>
 
-
+<p>깃허브 사용해보기</p>
 </body>
 </html>
