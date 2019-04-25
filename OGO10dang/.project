@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>OGO10dang</name>
+	<name>ogo10dang</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -28,46 +28,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>WebContent/css</name>
-			<type>2</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Users/pc/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94%20(3)/css</locationURI>
-		</link>
-		<link>
-			<name>WebContent/js</name>
-			<type>2</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Users/pc/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94%20(3)/js</locationURI>
-		</link>
-		<link>
-			<name>src/action</name>
-			<type>2</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Users/pc/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94%20(3)/action</locationURI>
-		</link>
-		<link>
-			<name>src/controller</name>
-			<type>2</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Users/pc/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94%20(3)/controller</locationURI>
-		</link>
-		<link>
-			<name>src/dao</name>
-			<type>2</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Users/pc/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94%20(3)/dao</locationURI>
-		</link>
-		<link>
-			<name>src/db</name>
-			<type>2</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Users/pc/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94%20(3)/db</locationURI>
-		</link>
-		<link>
-			<name>src/svc</name>
-			<type>2</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Users/pc/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94%20(3)/svc</locationURI>
-		</link>
-		<link>
-			<name>src/vo</name>
-			<type>2</type>
-			<locationURI>PARENT-3-PROJECT_LOC/Users/pc/Desktop/%EC%83%88%20%ED%8F%B4%EB%8D%94%20(3)/vo</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>

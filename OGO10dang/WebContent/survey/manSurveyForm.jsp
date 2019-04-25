@@ -11,114 +11,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 <!-- Bootstrap4 -->
-<link rel="stylesheet" href="./css/surveyForm.css">
-<style type="text/css">
-
-   .ul1 {
-   
-      margin-left: auto;
-      margin-right: auto;
-      vertical-align: bottom;
-      
-   }
-   .li1 {
-      padding: 0px 30px;
-      font-size: 30px;
-   }
-   
-   .content {
-      text-align: center;
-      padding: 10px;
-      min-height: calc(100vh - 20px);
-      <!--background-color: skyblue;-->
-   }
-   body {
-      width: auto;
-      margin: 200px;      
-   }
-   
-   .footer {
-      background-color: white;
-      text-align: center;
-      padding: 10px;
-      margin: 100px;
-      height: 20px; 
-      
-   }
-   #inputposition {
-      position: relative;
-      left: 215px;
-   }
-   .jumbotron {
-      padding: 10px;
-      margin: 0px;
-   }
-   .wid {
-   position:fixed; top:75px; left: 700px;
-   margin-left: auto;
-    margin-right: auto;
-   font-size: 20px;
-   }
-   .ul2 {
-    
-         background-color: white;
-   }
-</style>
-
-
-<title>체형 정보 입력 페이지</title>
+<link rel="stylesheet" href="../css/mainPageStyle.css">
+<link rel="stylesheet" href="./css/surveyFormStyle.css">
+<title>체형 정보 입력 페이지 - 남자</title>
 
 </head>
 <body>
-   <div>
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-         <ul class="navbar-nav navbar-left">
-            <img src="image/logoimage.png" alt="Logo"  onClick="location.href='mainPage.jsp';" style="width:150px; height: 60px;">
-         </ul>
-         <ul class="navbar-nav ul1">
-            <li class="nav-item li1">
-               <a class="nav-link" href="#">체형분석</a>           
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> 관리 </a>   
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> 상세 </a>   
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> 쇼핑 </a>   
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> 문의 </a>   
-            </li>
-         </ul>
-         <!-- 로그인 되었을때만 이페이지 오도록 지정 -->
-      </nav>
-      <nav class="navbar navbar-expand-sm bg-white wid">
-         <ul class="navbar-nav ul2 ">
-            <li class="nav-item">
-               <a class="nav-link " href="#" >이용안내</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link " href="#">설문조사</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link " href="#">결과보기</a>
-            </li>
-            
-         </ul>   
-      </nav>
-   </div>
-   <div class="mansurveyForm">
-         <form action="womanSurveyForm.pre" method="POST">
-            <fieldset>
-               <legend>기본 정보</legend>
+   <jsp:include page="../menubar.jsp"></jsp:include>
+    <div class="contents" id="surveyFormBackColor">
+         <form class="mansurveyForm" action="manSurveyForm.pre" method="POST">
+            <br><fieldset>
+               <legend id="legendwid">기본 정보</legend>
                <table>
                   <tr><td class="labelwidth"><label for="name">이름</label></td>
                   <td><input type="text" name="name" id="name" required /></td></tr>
                   <tr><td class="labelwidth"><label for="gender">성별</label></td>
-                  <td><input type="radio" name="gender" value="man" disabled> 남자&nbsp;&nbsp;
-                  <input type="radio" name="gender" value="woman" checked> 여자</td></tr>
+                  <td><input type="radio" name="gender" value="man" checked> 남자&nbsp;&nbsp;
+                  <input type="radio" name="gender" value="woman" disabled> 여자</td></tr>
                   <tr><td class="labelwidth"><label for="age">나이</label></td>
                   <td><input type="number" name="age" id="age" min="1" max="150" required/></td></tr>
                   <tr><td class="labelwidth"><label for="height">키</label></td>
@@ -128,11 +37,10 @@
                   <td><input type="number" name="weight" id="weight" min="0" required/></td>
                   <td>&nbsp;( kg )</td></tr>
                </table>
-
-            </fieldset>
+            </fieldset><br>
             
             <fieldset>
-               <legend>건강 & 운동 정보</legend>
+               <legend id="legendwid">건강 & 운동 정보</legend>
                   <table>
                   <tr><td class="labelwidth"><label for="smoke">흡연 유무</label></td>
                      <td><input type="radio" name="smoke" value="y" checked/> 흡연</td>
@@ -156,50 +64,44 @@
                      <td><input type="radio" name="purpose" value="health" /> 체력증진</td>
                      <td><input type="radio" name="purpose" value="muscle" /> 근력증가</td>
                   </tr>
-                  
-                  </table>
-            </fieldset>
+ 				</table>
+            </fieldset><br>
             
             <fieldset>
-               <legend>체형 정보</legend>
+               <legend id="legendwid">체형 정보</legend>
                <table>
                   <tr><td class="labelwidth"><label for="arm">팔</label></td>
                      <td><input type="radio" name="arm" value="1" checked/> 마름</td>
                      <td><input type="radio" name="arm" value="2" /> 보통</td>
                      <td><input type="radio" name="arm" value="3" /> 지방형</td>
                      <td><input type="radio" name="arm" value="4" /> 근육형</td></tr>
+                  <tr><td class="labelwidth"><label for="chest">가슴</label></td>
+                     <td><input type="radio" name="chest" value="1" checked/> 마름</td>
+                     <td><input type="radio" name="chest" id="chest2" value="2" /> <label for="chest2">보통</label></td>
+                     <td><input type="radio" name="chest" value="3" /> 지방형</td>
+                     <td><input type="radio" name="chest" value="4" /> 근육형</td></tr>
+                  <tr><td class="labelwidth"><label for="shoulder">어깨</label></td>
+                     <td><input type="radio" name="shoulder" value="1" checked/> 좁은편</td>
+                     <td><input type="radio" name="shoulder" value="2" /> 보통</td>
+                     <td><input type="radio" name="shoulder" value="3" /> 넓은편</td></tr>
                   <tr><td class="labelwidth"><label for="belly">복부</label></td>
                      <td><input type="radio" name="belly" value="1" checked/> 마름</td>
                      <td><input type="radio" name="belly" value="2" /> 보통</td>
                      <td><input type="radio" name="belly" value="3" /> 지방형</td>
                      <td><input type="radio" name="belly" value="4" /> 근육형</td></tr>
-                  <tr><td class="labelwidth"><label for="thigh">허벅지</label></td>
-                     <td><input type="radio" name="thigh" value="1" checked/> 좁은편</td>
-                     <td><input type="radio" name="thigh" value="2" /> 보통</td>
-                     <td><input type="radio" name="thigh" value="3" /> 넓은편</td>
-                     <td><input type="radio" name="thigh" value="4" /> 근육형</td></tr>
-                  <tr><td class="labelwidth"><label for="calf">종아리</label></td>
-                     <td><input type="radio" name="calf" value="1" checked/> 마름</td>
-                     <td><input type="radio" name="calf" value="2" /> 보통</td>
-                     <td><input type="radio" name="calf" value="3" /> 지방형</td>
-                     <td><input type="radio" name="calf" value="4" /> 근육형</td></tr>
-                  <tr><td class="labelwidth"><label for="hip">엉덩이</label></td>
-                     <td><input type="radio" name="hip" value="1" checked/> 마름</td>
-                     <td><input type="radio" name="hip" value="2" /> 보통</td>
-                     <td><input type="radio" name="hip" value="3" /> 지방형</td>
-                     <td><input type="radio" name="hip" value="4" /> 근육형</td></tr>
+                  <tr><td class="labelwidth"><label for="leg">하체</label></td>
+                     <td><input type="radio" name="leg" value="1" checked/> 마름</td>
+                     <td><input type="radio" name="leg" value="2" /> 보통</td>
+                     <td><input type="radio" name="leg" value="3" /> 지방형</td>
+                     <td><input type="radio" name="leg" value="4" /> 근육형</td></tr>
                </table>
-             </fieldset>
+             </fieldset><br>
              <div class="buttons">
                 <input id="submitButton" type="submit" value="제출">&nbsp;&nbsp;
                 <input id="resetButton" type="reset" value="다시쓰기"/>
-             </div>
+             </div><br>
          </form>
    </div>
-   <div class="footer">
-      
-         <p>이용약관 | 개인정보처리방침 | 저작권 | 고객센터</p>
-      </div>
-
+  <jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
