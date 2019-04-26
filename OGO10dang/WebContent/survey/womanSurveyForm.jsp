@@ -10,21 +10,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-<script src=surveyScript.js"></script>
 <!-- Bootstrap4 -->
-<link rel="stylesheet" href="./css/surveyForm.css">
-
-<title>체형 정보 입력 페이지</title>
+<link rel="stylesheet" href="../css/mainPageStyle.css">
+<link rel="stylesheet" href="./css/surveyFormStyle.css">
+<title>체형 정보 입력 페이지 - 여자</title>
 
 </head>
 <body>
-	<jsp:include page="../menubar.jsp"></jsp:include>
-	<jsp:include page="bodyanalysissubmenu.jsp"></jsp:include>
-
-   <div class="womansurveyForm">
-         <form action="womanSurveyForm.pre" method="POST">
-            <fieldset>
-               <legend>기본 정보</legend>
+   <jsp:include page="../menubar.jsp"></jsp:include>
+    <div class="contents" id="surveyFormBackColor">
+         <form class="mansurveyForm" action="manSurveyForm.pre" method="POST">
+            <br><fieldset>
+               <legend id="legendwid">기본 정보</legend>
                <table>
                   <tr><td class="labelwidth"><label for="name">이름</label></td>
                   <td><input type="text" name="name" id="name" required /></td></tr>
@@ -40,11 +37,10 @@
                   <td><input type="number" name="weight" id="weight" min="0" required/></td>
                   <td>&nbsp;( kg )</td></tr>
                </table>
-
-            </fieldset>
+            </fieldset><br>
             
             <fieldset>
-               <legend>건강 & 운동 정보</legend>
+               <legend id="legendwid">건강 & 운동 정보</legend>
                   <table>
                   <tr><td class="labelwidth"><label for="smoke">흡연 유무</label></td>
                      <td><input type="radio" name="smoke" value="y" checked/> 흡연</td>
@@ -68,12 +64,11 @@
                      <td><input type="radio" name="purpose" value="health" /> 체력증진</td>
                      <td><input type="radio" name="purpose" value="muscle" /> 근력증가</td>
                   </tr>
-                  
-                  </table>
-            </fieldset>
+ 				</table>
+            </fieldset><br>
             
             <fieldset>
-               <legend>체형 정보</legend>
+               <legend id="legendwid">체형 정보</legend>
                <table>
                   <tr><td class="labelwidth"><label for="arm">팔</label></td>
                      <td><input type="radio" name="arm" value="1" checked/> 마름</td>
@@ -86,9 +81,9 @@
                      <td><input type="radio" name="belly" value="3" /> 지방형</td>
                      <td><input type="radio" name="belly" value="4" /> 근육형</td></tr>
                   <tr><td class="labelwidth"><label for="thigh">허벅지</label></td>
-                     <td><input type="radio" name="thigh" value="1" checked/> 좁은편</td>
+                     <td><input type="radio" name="thigh" value="1" checked/> 마름</td>
                      <td><input type="radio" name="thigh" value="2" /> 보통</td>
-                     <td><input type="radio" name="thigh" value="3" /> 넓은편</td>
+                     <td><input type="radio" name="thigh" value="3" /> 지방형</td>
                      <td><input type="radio" name="thigh" value="4" /> 근육형</td></tr>
                   <tr><td class="labelwidth"><label for="calf">종아리</label></td>
                      <td><input type="radio" name="calf" value="1" checked/> 마름</td>
@@ -101,18 +96,13 @@
                      <td><input type="radio" name="hip" value="3" /> 지방형</td>
                      <td><input type="radio" name="hip" value="4" /> 근육형</td></tr>
                </table>
-               
-             </fieldset>
+             </fieldset><br>
              <div class="buttons">
-                <input id="submitButton" type="submit" value="제출" >&nbsp;&nbsp;
+                <input id="submitButton" type="submit" value="제출">&nbsp;&nbsp;
                 <input id="resetButton" type="reset" value="다시쓰기"/>
-             </div>
+             </div><br>
          </form>
    </div>
-   <div class="footer">
-      
-         <p>이용약관 | 개인정보처리방침 | 저작권 | 고객센터</p>
-      </div>
-
+  <jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>

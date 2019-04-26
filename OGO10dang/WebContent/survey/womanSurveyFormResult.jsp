@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "vo.survey.BodyInfo" %>
+<%
+	BodyInfo bodyInfoList = (BodyInfo) request.getAttribute("bodyInfoList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,28 +17,28 @@
 <!-- Bootstrap4 -->
 <link rel="stylesheet" href="../css/mainPageStyle.css">
 <link rel="stylesheet" href="./css/surveyFormStyle.css">
-<title>체형 정보 입력 페이지 - 남자</title>
+<title>이미 입력한 체형 정보 페이지 - 여자</title>
 
 </head>
 <body>
    <jsp:include page="../menubar.jsp"></jsp:include>
     <div class="contents" id="surveyFormBackColor">
-         <form class="mansurveyForm" action="manSurveyForm.pre" method="POST">
+         <form class="mansurveyForm" action="womanSurveyFormResult.pre" method="POST">
             <br><fieldset>
                <legend id="legendwid">기본 정보</legend>
                <table>
                   <tr><td class="labelwidth"><label for="name">이름</label></td>
-                  <td><input type="text" name="name" id="name" required /></td></tr>
+                  <td><input type="text" name="name" id="name" value='<%=bodyInfoList.getName()%>' required /></td></tr>
                   <tr><td class="labelwidth"><label for="gender">성별</label></td>
-                  <td><input type="radio" name="gender" value="man" checked> 남자&nbsp;&nbsp;
-                  <input type="radio" name="gender" value="woman" disabled> 여자</td></tr>
+                  <td><input type="radio" name="gender" value="man" disabled> 남자&nbsp;&nbsp;
+                  <input type="radio" name="gender" value="woman" checked> 여자</td></tr>
                   <tr><td class="labelwidth"><label for="age">나이</label></td>
-                  <td><input type="number" name="age" id="age" min="1" max="150" required/></td></tr>
+                  <td><input type="number" name="age" id="age" min="1" max="150" value='<%=bodyInfoList.getAge()%>' required/></td></tr>
                   <tr><td class="labelwidth"><label for="height">키</label></td>
-                  <td><input type="number" name="height" id="height" min="0" style="display: inline;" required /></td>
+                  <td><input type="number" name="height" id="height" min="0" style="display: inline;" value='<%=bodyInfoList.getHeight()%>' required /></td>
                   <td>&nbsp;( cm )</td></tr>
                   <tr><td class="labelwidth"><label for="weight">몸무게</label></td>
-                  <td><input type="number" name="weight" id="weight" min="0" required/></td>
+                  <td><input type="number" name="weight" id="weight" min="0" value='<%=bodyInfoList.getWeight()%>' required/></td>
                   <td>&nbsp;( kg )</td></tr>
                </table>
             </fieldset><br>
@@ -75,25 +79,26 @@
                      <td><input type="radio" name="arm" value="2" /> 보통</td>
                      <td><input type="radio" name="arm" value="3" /> 지방형</td>
                      <td><input type="radio" name="arm" value="4" /> 근육형</td></tr>
-                  <tr><td class="labelwidth"><label for="chest">가슴</label></td>
-                     <td><input type="radio" name="chest" value="1" checked/> 마름</td>
-                     <td><input type="radio" name="chest" id="chest2" value="2" /> <label for="chest2">보통</label></td>
-                     <td><input type="radio" name="chest" value="3" /> 지방형</td>
-                     <td><input type="radio" name="chest" value="4" /> 근육형</td></tr>
-                  <tr><td class="labelwidth"><label for="shoulder">어깨</label></td>
-                     <td><input type="radio" name="shoulder" value="1" checked/> 좁은편</td>
-                     <td><input type="radio" name="shoulder" value="2" /> 보통</td>
-                     <td><input type="radio" name="shoulder" value="3" /> 넓은편</td></tr>
                   <tr><td class="labelwidth"><label for="belly">복부</label></td>
                      <td><input type="radio" name="belly" value="1" checked/> 마름</td>
                      <td><input type="radio" name="belly" value="2" /> 보통</td>
                      <td><input type="radio" name="belly" value="3" /> 지방형</td>
                      <td><input type="radio" name="belly" value="4" /> 근육형</td></tr>
-                  <tr><td class="labelwidth"><label for="leg">하체</label></td>
-                     <td><input type="radio" name="leg" value="1" checked/> 마름</td>
-                     <td><input type="radio" name="leg" value="2" /> 보통</td>
-                     <td><input type="radio" name="leg" value="3" /> 지방형</td>
-                     <td><input type="radio" name="leg" value="4" /> 근육형</td></tr>
+                  <tr><td class="labelwidth"><label for="thigh">허벅지</label></td>
+                     <td><input type="radio" name="thigh" value="1" checked/> 마름</td>
+                     <td><input type="radio" name="thigh" value="2" /> 보통</td>
+                     <td><input type="radio" name="thigh" value="3" /> 지방형</td>
+                     <td><input type="radio" name="thigh" value="4" /> 근육형</td></tr>
+                  <tr><td class="labelwidth"><label for="calf">종아리</label></td>
+                     <td><input type="radio" name="calf" value="1" checked/> 마름</td>
+                     <td><input type="radio" name="calf" value="2" /> 보통</td>
+                     <td><input type="radio" name="calf" value="3" /> 지방형</td>
+                     <td><input type="radio" name="calf" value="4" /> 근육형</td></tr>
+                  <tr><td class="labelwidth"><label for="hip">엉덩이</label></td>
+                     <td><input type="radio" name="hip" value="1" checked/> 마름</td>
+                     <td><input type="radio" name="hip" value="2" /> 보통</td>
+                     <td><input type="radio" name="hip" value="3" /> 지방형</td>
+                     <td><input type="radio" name="hip" value="4" /> 근육형</td></tr>
                </table>
              </fieldset><br>
              <div class="buttons">

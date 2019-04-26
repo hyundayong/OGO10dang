@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "vo.survey.BodyInfo" %>
+<%
+	BodyInfo bodyInfoList = (BodyInfo) request.getAttribute("bodyInfoList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,22 +23,22 @@
 <body>
    <jsp:include page="../menubar.jsp"></jsp:include>
     <div class="contents" id="surveyFormBackColor">
-         <form class="mansurveyForm" action="manSurveyForm.pre" method="POST">
+         <form class="mansurveyForm" action="manSurveyFormResult.pre" method="POST">
             <br><fieldset>
                <legend id="legendwid">기본 정보</legend>
                <table>
                   <tr><td class="labelwidth"><label for="name">이름</label></td>
-                  <td><input type="text" name="name" id="name" required /></td></tr>
+                  <td><input type="text" name="name" id="name" value='<%=bodyInfoList.getName()%>' required /></td></tr>
                   <tr><td class="labelwidth"><label for="gender">성별</label></td>
                   <td><input type="radio" name="gender" value="man" checked> 남자&nbsp;&nbsp;
                   <input type="radio" name="gender" value="woman" disabled> 여자</td></tr>
                   <tr><td class="labelwidth"><label for="age">나이</label></td>
-                  <td><input type="number" name="age" id="age" min="1" max="150" required/></td></tr>
+                  <td><input type="number" name="age" id="age" min="1" max="150" value='<%=bodyInfoList.getAge()%>' required/></td></tr>
                   <tr><td class="labelwidth"><label for="height">키</label></td>
-                  <td><input type="number" name="height" id="height" min="0" style="display: inline;" required /></td>
+                  <td><input type="number" name="height" id="height" min="0" style="display: inline;" value='<%=bodyInfoList.getHeight()%>' required /></td>
                   <td>&nbsp;( cm )</td></tr>
                   <tr><td class="labelwidth"><label for="weight">몸무게</label></td>
-                  <td><input type="number" name="weight" id="weight" min="0" required/></td>
+                  <td><input type="number" name="weight" id="weight" min="0" value='<%=bodyInfoList.getWeight()%>' required/></td>
                   <td>&nbsp;( kg )</td></tr>
                </table>
             </fieldset><br>

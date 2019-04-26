@@ -26,8 +26,6 @@ public class LoginAction implements Action {
 				
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		System.out.println("id = " + id);
-		System.out.println("pw = " + pw);
 		    		
 		loginInfoCheck = LoginService.getLoginMember(id, pw);
 		PrintWriter out = response.getWriter();

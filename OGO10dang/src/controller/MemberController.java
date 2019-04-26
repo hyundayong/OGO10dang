@@ -34,7 +34,6 @@ public class MemberController extends HttpServlet {
     	String contextPath = request.getContextPath();
     	String command = requestURI.substring(contextPath.length());
     	
-		
     	if(command.equals("/registForm.member")) {
     		// 회원가입 Action
     		action = new RegistProAction();
@@ -58,11 +57,12 @@ public class MemberController extends HttpServlet {
     		} catch(Exception e) {
     			e.printStackTrace();
     		}
-     	} else if(command.equals("/logout.member")) {
+    		// 
+     	} else if(command.substring(command.length()-14, command.length()).equals("/logout.member")) {
     		try {
     			HttpSession session = request.getSession();
     			session.invalidate();
-    			response.sendRedirect("mainPage.jsp");
+    			response.sendRedirect(contextPath + "/mainPage.jsp");
     		} catch(Exception e) {
     			e.printStackTrace();
     		}

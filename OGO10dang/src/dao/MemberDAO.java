@@ -110,7 +110,6 @@ public class MemberDAO {
 			while(rs.next()) {
 				if(id.equals(rs.getString(1))) {	// DB에 입력한 id가 있으면
 					loginName = rs.getString(2);	// 해당 사용자 이름을 가져옴
-					System.out.println("loginName = " + loginName);
 				} else {
 					
 				}

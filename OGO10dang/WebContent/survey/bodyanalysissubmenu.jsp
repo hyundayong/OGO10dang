@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>체형 분석 SUB MENU</title>
+<script src = './js/surveyScript.js'></script>
 </head>
+
 <style>
 	.submenubar {
-		position:fixed; top:80px; 
+		position:fixed; top:65px; 
 		width: 100%;
 		background-color: white;
 		padding-left: 470px;
@@ -32,7 +34,7 @@
       <nav class="navbar navbar-expand-sm">
          <ul class="navbar-nav">
             <li class="nav-item li_submenu">
-               <a class="nav-link " href="#">설문조사</a>
+               <a class="nav-link " href="#" onclick="loginCheck('<%=(String)session.getAttribute("id")%>')">설문조사</a>
             </li>
             <li class="nav-item li_submenu">
                <a class="nav-link " href="#">결과보기</a>
