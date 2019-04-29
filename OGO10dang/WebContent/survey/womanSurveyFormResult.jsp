@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "vo.survey.BodyInfo" %>
+<%
+	BodyInfo bodyInfoList = (BodyInfo) request.getAttribute("bodyInfoList");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,128 +15,36 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 <!-- Bootstrap4 -->
-<link rel="stylesheet" href="./css/surveyForm.css">
-<style type="text/css">
-
-   .ul1 {
-   
-      margin-left: auto;
-      margin-right: auto;
-      vertical-align: bottom;
-      
-   }
-   .li1 {
-      padding: 0px 30px;
-      font-size: 30px;
-   }
-   
-   .content {
-      text-align: center;
-      padding: 10px;
-      min-height: calc(100vh - 20px);
-      <!--background-color: skyblue;-->
-   }
-   body {
-      width: auto;
-      margin: 200px;      
-   }
-   
-   .footer {
-      background-color: white;
-      text-align: center;
-      padding: 10px;
-      margin: 100px;
-      height: 20px; 
-      
-   }
-   #inputposition {
-      position: relative;
-      left: 215px;
-   }
-   .jumbotron {
-      padding: 10px;
-      margin: 0px;
-   }
-   .wid {
-   position:fixed; top:75px; left: 700px;
-   margin-left: auto;
-    margin-right: auto;
-   font-size: 20px;
-   }
-   .ul2 {
-    
-         background-color: white;
-   }
-</style>
-
-
-<title>체형 정보 입력 페이지</title>
+<link rel="stylesheet" href="../css/mainPageStyle.css">
+<link rel="stylesheet" href="./css/surveyFormStyle.css">
+<title>이미 입력한 체형 정보 페이지 - 여자</title>
 
 </head>
 <body>
-   <div>
-      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-         <ul class="navbar-nav navbar-left">
-            <img src="image/logoimage.png" alt="Logo"  onClick="location.href='mainPage.jsp';" style="width:150px; height: 60px;">
-         </ul>
-         <ul class="navbar-nav ul1">
-            <li class="nav-item li1">
-               <a class="nav-link" href="#">체형분석</a>           
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> 관리 </a>   
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> 상세 </a>   
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> 쇼핑 </a>   
-            </li>
-            <li class="nav-item li1">
-               <a class="nav-link" href="#"> 문의 </a>   
-            </li>
-         </ul>
-         <!-- 로그인 되었을때만 이페이지 오도록 지정 -->
-      </nav>
-      <nav class="navbar navbar-expand-sm bg-white wid">
-         <ul class="navbar-nav ul2 ">
-            <li class="nav-item">
-               <a class="nav-link " href="#" >이용안내</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link " href="#">설문조사</a>
-            </li>
-            <li class="nav-item">
-               <a class="nav-link " href="#">결과보기</a>
-            </li>
-            
-         </ul>   
-      </nav>
-   </div>
-   <div class="mansurveyForm">
-         <form action="womanSurveyForm.pre" method="POST">
-            <fieldset>
-               <legend>기본 정보</legend>
+   <jsp:include page="../menubar.jsp"></jsp:include>
+    <div class="contents" id="surveyFormBackColor">
+         <form class="mansurveyForm" action="womanSurveyFormResult.pre" method="POST">
+            <br><fieldset>
+               <legend id="legendwid">기본 정보</legend>
                <table>
                   <tr><td class="labelwidth"><label for="name">이름</label></td>
-                  <td><input type="text" name="name" id="name" required /></td></tr>
+                  <td><input type="text" name="name" id="name" value='<%=bodyInfoList.getName()%>' required /></td></tr>
                   <tr><td class="labelwidth"><label for="gender">성별</label></td>
                   <td><input type="radio" name="gender" value="man" disabled> 남자&nbsp;&nbsp;
                   <input type="radio" name="gender" value="woman" checked> 여자</td></tr>
                   <tr><td class="labelwidth"><label for="age">나이</label></td>
-                  <td><input type="number" name="age" id="age" min="1" max="150" required/></td></tr>
+                  <td><input type="number" name="age" id="age" min="1" max="150" value='<%=bodyInfoList.getAge()%>' required/></td></tr>
                   <tr><td class="labelwidth"><label for="height">키</label></td>
-                  <td><input type="number" name="height" id="height" min="0" style="display: inline;" required /></td>
+                  <td><input type="number" name="height" id="height" min="0" style="display: inline;" value='<%=bodyInfoList.getHeight()%>' required /></td>
                   <td>&nbsp;( cm )</td></tr>
                   <tr><td class="labelwidth"><label for="weight">몸무게</label></td>
-                  <td><input type="number" name="weight" id="weight" min="0" required/></td>
+                  <td><input type="number" name="weight" id="weight" min="0" value='<%=bodyInfoList.getWeight()%>' required/></td>
                   <td>&nbsp;( kg )</td></tr>
                </table>
-
-            </fieldset>
+            </fieldset><br>
             
             <fieldset>
-               <legend>건강 & 운동 정보</legend>
+               <legend id="legendwid">건강 & 운동 정보</legend>
                   <table>
                   <tr><td class="labelwidth"><label for="smoke">흡연 유무</label></td>
                      <td><input type="radio" name="smoke" value="y" checked/> 흡연</td>
@@ -156,12 +68,11 @@
                      <td><input type="radio" name="purpose" value="health" /> 체력증진</td>
                      <td><input type="radio" name="purpose" value="muscle" /> 근력증가</td>
                   </tr>
-                  
-                  </table>
-            </fieldset>
+ 				</table>
+            </fieldset><br>
             
             <fieldset>
-               <legend>체형 정보</legend>
+               <legend id="legendwid">체형 정보</legend>
                <table>
                   <tr><td class="labelwidth"><label for="arm">팔</label></td>
                      <td><input type="radio" name="arm" value="1" checked/> 마름</td>
@@ -174,9 +85,9 @@
                      <td><input type="radio" name="belly" value="3" /> 지방형</td>
                      <td><input type="radio" name="belly" value="4" /> 근육형</td></tr>
                   <tr><td class="labelwidth"><label for="thigh">허벅지</label></td>
-                     <td><input type="radio" name="thigh" value="1" checked/> 좁은편</td>
+                     <td><input type="radio" name="thigh" value="1" checked/> 마름</td>
                      <td><input type="radio" name="thigh" value="2" /> 보통</td>
-                     <td><input type="radio" name="thigh" value="3" /> 넓은편</td>
+                     <td><input type="radio" name="thigh" value="3" /> 지방형</td>
                      <td><input type="radio" name="thigh" value="4" /> 근육형</td></tr>
                   <tr><td class="labelwidth"><label for="calf">종아리</label></td>
                      <td><input type="radio" name="calf" value="1" checked/> 마름</td>
@@ -189,17 +100,13 @@
                      <td><input type="radio" name="hip" value="3" /> 지방형</td>
                      <td><input type="radio" name="hip" value="4" /> 근육형</td></tr>
                </table>
-             </fieldset>
+             </fieldset><br>
              <div class="buttons">
                 <input id="submitButton" type="submit" value="제출">&nbsp;&nbsp;
                 <input id="resetButton" type="reset" value="다시쓰기"/>
-             </div>
+             </div><br>
          </form>
    </div>
-   <div class="footer">
-      
-         <p>이용약관 | 개인정보처리방침 | 저작권 | 고객센터</p>
-      </div>
-
+  <jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
