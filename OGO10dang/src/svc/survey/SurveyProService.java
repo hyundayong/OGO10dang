@@ -90,21 +90,6 @@ public class SurveyProService {
 		bodyinfo_wList = surveyDAO.selectWBodyInfo(id);
 		close(conn);
 		
-		System.out.println("bodyinfo_wList.Name [Service~]= "+bodyinfo_wList.getName());
-		System.out.println("bodyinfo_wList.Age = "+bodyinfo_wList.getAge());
-		System.out.println("bodyinfo_wList.Height = "+bodyinfo_wList.getHeight());
-		System.out.println("bodyinfo_wList.Weight = "+bodyinfo_wList.getWeight());
-		System.out.println("bodyinfo_wList.Smoke = "+bodyinfo_wList.getSmoke());
-		System.out.println("bodyinfo_wList.Drink = "+bodyinfo_wList.getDrink());
-		System.out.println("bodyinfo_wList.Exercise = "+bodyinfo_wList.getExercise());
-		System.out.println("bodyinfo_wList.Purpose = "+bodyinfo_wList.getPurpose());
-		System.out.println("bodyinfo_wList.Arm = "+bodyinfo_wList.getArm());
-		System.out.println("bodyinfo_wList.Belly = "+bodyinfo_wList.getBelly());
-		System.out.println("bodyinfo_wList.Thigh = "+bodyinfo_wList.getThigh());
-		System.out.println("bodyinfo_wList.Calf = "+bodyinfo_wList.getThigh());
-		System.out.println("bodyinfo_wList.Hip = "+bodyinfo_wList.getHip());
-		
-		
 		return bodyinfo_wList;
 	}
 	
@@ -117,21 +102,6 @@ public class SurveyProService {
 		
 		bodyinfo_mList = surveyDAO.selectMBodyInfo(id);
 		close(conn);
-		
-		System.out.println("bodyinfo_mList.Name [Service~]= "+bodyinfo_mList.getName());
-		System.out.println("bodyinfo_mList.Age = "+bodyinfo_mList.getAge());
-		System.out.println("bodyinfo_mList.Height = "+bodyinfo_mList.getHeight());
-		System.out.println("bodyinfo_mList.Weight = "+bodyinfo_mList.getWeight());
-		System.out.println("bodyinfo_mList.Smoke = "+bodyinfo_mList.getSmoke());
-		System.out.println("bodyinfo_mList.Drink = "+bodyinfo_mList.getDrink());
-		System.out.println("bodyinfo_mList.Exercise = "+bodyinfo_mList.getExercise());
-		System.out.println("bodyinfo_mList.Purpose = "+bodyinfo_mList.getPurpose());
-		System.out.println("bodyinfo_mList.Arm = "+bodyinfo_mList.getArm());
-		System.out.println("bodyinfo_mList.Belly = "+bodyinfo_mList.getChest());
-		System.out.println("bodyinfo_mList.Thigh = "+bodyinfo_mList.getShoulder());
-		System.out.println("bodyinfo_mList.Calf = "+bodyinfo_mList.getBelly());
-		System.out.println("bodyinfo_mList.Hip = "+bodyinfo_mList.getLeg());
-		
 		
 		return bodyinfo_mList;
 	}

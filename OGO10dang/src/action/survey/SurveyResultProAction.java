@@ -88,9 +88,9 @@ public class SurveyResultProAction implements Action {
 		
 		// 완료하고나서 어디로 이동할지
 		if (request.getParameter("gender").equals("man")) {
-			forward.setPath("manSurveyFormResult.jsp");
+			forward.setPath("/survey/manSurveyFormResult.jsp");
 		} else if (request.getParameter("gender").equals("woman")) {
-			forward.setPath("womanSurveyFormResult.jsp");
+			forward.setPath("/survey/womanSurveyFormResult.jsp");
 		} else {
 			System.out.println("SurveyProAction else 입장1");
 		}

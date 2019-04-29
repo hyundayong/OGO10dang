@@ -37,7 +37,7 @@
 </head>
 <body>
 	<jsp:include page="../menubar.jsp"></jsp:include>
-    <jsp:include page="bodyanalysissubmenu.jsp"></jsp:include>
+    <jsp:include page="../survey/bodyanalysissubmenu.jsp"></jsp:include>
    
 	<div class="contents"><div class="bodyanalysisuseintro">
 		<h1 style="font-family:Rix고딕 H;padding-left:300px;">INTRODUCTION</h1>

@@ -37,7 +37,7 @@
                <a class="nav-link " href="#" onclick="loginCheck('<%=(String)session.getAttribute("id")%>')">설문조사</a>
             </li>
             <li class="nav-item li_submenu">
-               <a class="nav-link " href="#">결과보기</a>
+               <a class="nav-link " href="#" onclick="loginSurveyCheck('<%=(String)session.getAttribute("id") %>')">결과보기</a>
             </li>
             
          </ul>   

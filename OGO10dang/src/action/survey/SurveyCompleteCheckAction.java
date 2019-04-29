@@ -24,7 +24,6 @@ public class SurveyCompleteCheckAction implements Action {
 		// 남자테이블이 return 되면 남자, 여자테이블이 return 되면 여자.
 		boolean manCount = serveyCheck.isSurveyComplete_M(id);
 		boolean womanCount = serveyCheck.isSurveyComplete_W(id);
-		String gender = (String)session.getAttribute("gender");
 		
 		forward = new ActionForward();
 		forward.setRedirect(true);
@@ -34,14 +33,14 @@ public class SurveyCompleteCheckAction implements Action {
 			SurveyProService selectSurveyService = new SurveyProService();
 			BodyInfo bodyInfoList = selectSurveyService.getMBodyInfo(id);
 			request.setAttribute("bodyInfoList", bodyInfoList);
-			forward.setPath("manSurveyFormResult.jsp");	// 남자결과페이지로 이동
+			forward.setPath("/survey/manSurveyFormResult.jsp");	// 남자결과페이지로 이동
 		} else if (womanCount) { //여자일때
 			SurveyProService selectSurveyService = new SurveyProService();
 			BodyInfo bodyInfoList = selectSurveyService.getWBodyInfo(id);
 			request.setAttribute("bodyInfoList", bodyInfoList);
-			forward.setPath("womanSurveyFormResult.jsp");	// 여자결과페이지로 이동
+			forward.setPath("/survey/womanSurveyFormResult.jsp");	// 여자결과페이지로 이동
 		} else { // 설문조사 기록 없을때
-			forward.setPath("surveyGenderSelect.jsp");
+			forward.setPath("/survey/surveyGenderSelect.jsp");
 		}
 		return forward;
 	}

@@ -107,7 +107,7 @@
          </ul>
          <ul class="navbar-nav ul_mainmenu">
             <li class="nav-item li_mainmenu">
-               <a class="nav-link" onClick="location.href='http://localhost:8088/ogo10dang_yk/survey/bodyanalysisForm.jsp';" href="#">체형분석</a>           
+               <a class="nav-link" onClick="location.href='http://localhost:8088/ogo10dang_yk/survey/bodyanalysisIntro.jsp';" href="#">체형분석</a>           
             </li>
             <li class="nav-item li_mainmenu">
                <a class="nav-link" onClick="location.href='managementForm.jsp';" href="#"> 관리 </a>   

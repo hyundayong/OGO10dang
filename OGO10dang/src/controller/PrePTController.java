@@ -1,4 +1,4 @@
-package controller.survey;
+package controller;
 
 import java.io.IOException;
 
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.analysis.AnalysisReadyCheckAction;
 import action.survey.SurveyCompleteCheckAction;
 import action.survey.SurveyProAction;
 import action.survey.SurveyResultProAction;
@@ -25,6 +26,10 @@ public class PrePTController extends HttpServlet {
 	    	Action action = null;
 	    	ActionForward forward = null;
 	    	
+	    	/*	requestURI : /ogo10dang_yk/survey/surveyCompleteCheck.pre
+			*	contextPath : /ogo10dang_yk
+			*	command : /survey/surveyCompleteCheck.pre
+	    	 */
 	    	String requestURI = request.getRequestURI();
 	    	String contextPath = request.getContextPath();
 	    	String command = requestURI.substring(contextPath.length());
@@ -54,13 +59,20 @@ public class PrePTController extends HttpServlet {
 	    		} catch(Exception e) {
 	    			e.printStackTrace();
 	    		}
+	    	} else if (command.equals("/survey/analysisReadyCheck.pre")){
+	    		action= new AnalysisReadyCheckAction();
+	    		try {
+	    			forward = action.execute(request,  response);
+	    			forward.setRedirect(false);
+	    		} catch(Exception e) {
+	    			e.printStackTrace();
+	    		}
 	    	} 
+	    	
 	    	if(forward != null) {
 	    		if(forward.isRedirect()) {
-	    			System.out.println("redirect");
 	    			response.sendRedirect(forward.getPath());
 	    		} else {
-	    			System.out.println("dispatcher");
 	    			RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 	    			dispatcher.forward(request, response);
 	    		}
