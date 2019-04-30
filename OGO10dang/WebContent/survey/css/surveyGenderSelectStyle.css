@@ -1,0 +1,33 @@
+@charset "UTF-8";
+<style>
+	body {
+	}
+	.genderselect{
+		margin-top: 100px;
+		padding-top: 50px;
+		margin: 0 auto;
+		text-align: center;
+		background-color: #DDDCC5;
+	}
+	
+   #genderselectbutton {
+      width:200px;
+      height:300px;
+      margin: 30px 10px;
+      font-size: 27px;
+      margin:50px;
+      border: none;
+      background-color: #6A6A61;
+      color: white; 
+   }
+
+   #genderselectbutton:hover {
+		background-color: #1D2326;
+   }
+   #genderselecttitle {
+   	text-align:center;
+   	font-size:40px;
+   	padding-bottom:30px;
+   	font-family: Rix고딕 H;
+   }
+</style>
