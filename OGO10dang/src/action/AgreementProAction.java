@@ -15,11 +15,6 @@ public class AgreementProAction implements Action {
       
       String agreementCheck1 = request.getParameter("requiredTerms1");
       String agreementCheck2 = request.getParameter("requiredTerms2");
-      System.out.println("agreementCheck1 = "+request.getParameter("requiredTerms1"));
-      System.out.println("agreementCheck2 = "+request.getParameter("requiredTerms2"));
-      System.out.println("agreementCheck1 = "+request.getParameter("Terms3"));
-      System.out.println("agreementCheck2 = "+request.getParameter("Terms4"));
-      System.out.println("agreementCheck1 = "+request.getParameter("Terms5"));
 
       
       if (agreementCheck1 != null && agreementCheck2 != null) {
@@ -28,7 +23,6 @@ public class AgreementProAction implements Action {
          forward.setPath("RegistForm.jsp");
          
       } else {
-         System.out.println("agreement ELSE ");
          response.setContentType("text/html; charset=UTF-8");
          PrintWriter out = response.getWriter();
          out.println("<script>");

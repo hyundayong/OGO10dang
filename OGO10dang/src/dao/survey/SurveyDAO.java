@@ -183,7 +183,6 @@ public class SurveyDAO {
 			pstmt.setInt(1, bodyinfo.getAge());
 			pstmt.setString(2, bodyinfo.getId());
 			pstmt.setString(3, bodyinfo.getName());
-			System.out.println("name = "+ bodyinfo.getName());
 			
 			pstmt.setInt(4, bodyinfo.getHeight());
 			pstmt.setInt(5, bodyinfo.getWeight());
@@ -202,7 +201,6 @@ public class SurveyDAO {
 			
 			pstmt.setInt(16, bodyinfo.getMuscle());
 			
-			System.out.println("bodytype = "+bodyinfo.getBodytype());
 			pstmt.setString(17, bodyinfo.getBodytype());
 			
 			insertCount = pstmt.executeUpdate();
@@ -263,8 +261,6 @@ public class SurveyDAO {
 		ResultSet rs = null;
 		BodyInfo bodyinfoSettingBean = null;
 		
-		System.out.println("DAO(W) : session ID = "+id);
-		System.out.println("selectWBodyInfo DAO ¿‘¿Â ");
 		String sql = "SELECT NAME, AGE, HEIGHT, WEIGHT, SMOKE, DRINK, EXERCISE, PURPOSE, ARM, BELLY, THIGH, CALF, HIP FROM WBODYINFO_HM WHERE ID=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -288,19 +284,7 @@ public class SurveyDAO {
 				bodyinfoSettingBean.setCalf(rs.getInt(12));
 				bodyinfoSettingBean.setHip(rs.getInt(13));
 				
-				System.out.println("bodyinfoSettingBean.Name = "+bodyinfoSettingBean.getName());
-				System.out.println("bodyinfoSettingBean.Age = "+bodyinfoSettingBean.getAge());
-				System.out.println("bodyinfoSettingBean.Height = "+bodyinfoSettingBean.getHeight());
-				System.out.println("bodyinfoSettingBean.Weight = "+bodyinfoSettingBean.getWeight());
-				System.out.println("bodyinfoSettingBean.Smoke = "+bodyinfoSettingBean.getSmoke());
-				System.out.println("bodyinfoSettingBean.Drink = "+bodyinfoSettingBean.getDrink());
-				System.out.println("bodyinfoSettingBean.Exercise = "+bodyinfoSettingBean.getExercise());
-				System.out.println("bodyinfoSettingBean.Purpose = "+bodyinfoSettingBean.getPurpose());
-				System.out.println("bodyinfoSettingBean.Arm = "+bodyinfoSettingBean.getArm());
-				System.out.println("bodyinfoSettingBean.Belly = "+bodyinfoSettingBean.getBelly());
-				System.out.println("bodyinfoSettingBean.Thigh = "+bodyinfoSettingBean.getThigh());
-				System.out.println("bodyinfoSettingBean.Calf = "+bodyinfoSettingBean.getThigh());
-				System.out.println("bodyinfoSettingBean.Hip = "+bodyinfoSettingBean.getHip());
+			
 				
 			}
 			
@@ -342,21 +326,6 @@ public class SurveyDAO {
 				bodyinfoSettingBean.setThigh(rs.getInt(11));
 				bodyinfoSettingBean.setCalf(rs.getInt(12));
 				bodyinfoSettingBean.setHip(rs.getInt(13));
-				
-				System.out.println("bodyinfoSettingBean.Name = "+bodyinfoSettingBean.getName());
-				System.out.println("bodyinfoSettingBean.Age = "+bodyinfoSettingBean.getAge());
-				System.out.println("bodyinfoSettingBean.Height = "+bodyinfoSettingBean.getHeight());
-				System.out.println("bodyinfoSettingBean.Weight = "+bodyinfoSettingBean.getWeight());
-				System.out.println("bodyinfoSettingBean.Smoke = "+bodyinfoSettingBean.getSmoke());
-				System.out.println("bodyinfoSettingBean.Drink = "+bodyinfoSettingBean.getDrink());
-				System.out.println("bodyinfoSettingBean.Exercise = "+bodyinfoSettingBean.getExercise());
-				System.out.println("bodyinfoSettingBean.Purpose = "+bodyinfoSettingBean.getPurpose());
-				System.out.println("bodyinfoSettingBean.Arm = "+bodyinfoSettingBean.getArm());
-				System.out.println("bodyinfoSettingBean.Belly = "+bodyinfoSettingBean.getBelly());
-				System.out.println("bodyinfoSettingBean.Thigh = "+bodyinfoSettingBean.getThigh());
-				System.out.println("bodyinfoSettingBean.Calf = "+bodyinfoSettingBean.getThigh());
-				System.out.println("bodyinfoSettingBean.Hip = "+bodyinfoSettingBean.getHip());
-				
 			}
 			
 		} catch (Exception e ) {
@@ -368,3 +337,4 @@ public class SurveyDAO {
 		
 	}
 }
+

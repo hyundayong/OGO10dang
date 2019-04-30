@@ -26,8 +26,7 @@
 </head>
 <style>
 .ul_mainmenu {  
-      margin-left: auto;
-      margin-right: auto;
+      margin-left: 140px;
       vertical-align: bottom;
    }
    .li_mainmenu {
@@ -39,6 +38,10 @@
       font-weight: bold;
 	  text-align: center;
    }
+   .ul_membermenu{
+   		position: fixed;
+   		right: 20px;
+   }
    .li_mainmenu a:link, .li_mainmenu a:visited, .li_membermenu a:link, .li_membermenu a:visited {
    		color: white;
    }
@@ -47,7 +50,6 @@
    }
    
    .li_membermenu {
-   		margin: 0 5px;
    		width: 100px;
    		text-align: center;
    		font-family: 나눔스퀘어;
@@ -69,7 +71,7 @@
    		display: none;
    }
    #bannerDel { display:inline; }
-   #myPage table tr { border: 2px solid #ccc; }
+   #myPage table tr { border: 2px solid #ccc; background-color: white; }
    #myPage table td {	width: 200px; text-align: center;
    					font-family: 나눔스퀘어; 
    					padding: 10px;
@@ -101,11 +103,11 @@
 	<div class="header">
       <nav class="navbar navbar-expand-sm navbarstyle fixed-top">
          <ul class="navbar-nav navbar-left">
-            <img src="image/mainlogo.png" alt="Logo"  onClick="location.href='http://localhost:8088/ogo10dang_jjh/mainPage.jsp';" style="width:200x; height: 40px; cursor:pointer;">
+            <img src="image/mainlogo.png" alt="Logo"  onClick="location.href='http://localhost:8088/ogo10dang_work/mainPage.jsp';" style="width:200x; height: 40px; cursor:pointer;">
          </ul>
          <ul class="navbar-nav ul_mainmenu">
             <li class="nav-item li_mainmenu">
-               <a class="nav-link" onClick="location.href='http://localhost:8088/ogo10dang_jjh/survey/bodyanalysisForm.jsp';" href="#">체형분석</a>           
+               <a class="nav-link" onClick="location.href='http://localhost:8088/ogo10dang_work/survey/bodyanalysisIntro.jsp';" href="#">체형분석</a>           
             </li>
             <li class="nav-item li_mainmenu">
                <a class="nav-link" onClick="location.href='managementForm.jsp';" href="#"> 관리 </a>   
@@ -120,7 +122,7 @@
                <a class="nav-link" href="#"> 문의 </a>   
             </li>
          </ul>
-         <ul class="navbar-nav navbar-right ">
+         <ul class="navbar-nav navbar-right ul_membermenu">
          	<li class="nav-item">
                <a class="nav-link" href="#" onClick="document.getElementById('myPage').style.display='inline-block'"><b style="font-family:나눔스퀘어;font-size:20px;color:#ededed;"><%=loginName %></b></a>   
             </li>
@@ -128,10 +130,10 @@
             	if(id == null) {
             %>
             <li class="nav-item li_membermenu" id="bannerDel">
-               <a class="nav-link" href="#" onClick="location.href='http://localhost:8088/ogo10dang_jjh/loginForm.jsp';">로그인</a>   
+               <a class="nav-link" href="#" onClick="location.href='http://localhost:8088/ogo10dang_work/loginForm.jsp';">로그인</a>   
             </li>
             <li class="nav-item li_membermenu" id="bannerDel">
-               <a class="nav-link" href="#" onClick="location.href='http://localhost:8088/ogo10dang_jjh/registrationTerms.jsp';">회원가입</a>   
+               <a class="nav-link" href="#" onClick="location.href='http://localhost:8088/ogo10dang_work/registrationTerms.jsp';">회원가입</a>   
             </li>
             <%	} %>
          </ul>

@@ -100,17 +100,16 @@ public class SurveyProAction implements Action {
 		forward.setRedirect(true);
 		
 		// 완료하고나서 어디로 이동할지
-		System.out.println("어느 action으로 오는지 = SurveyProAction");
 		if (gender.equals("man")) {
 			SurveyProService selectSurveyService = new SurveyProService();
 			BodyInfo bodyInfoList = selectSurveyService.getMBodyInfo(id);
 			request.setAttribute("bodyInfoList", bodyInfoList);
-			forward.setPath("manSurveyFormResult.jsp");
+			forward.setPath("/survey/manSurveyFormResult.jsp");
 		} else if (gender.equals("woman")) {
 			SurveyProService selectSurveyService = new SurveyProService();
 			BodyInfo bodyInfoList = selectSurveyService.getWBodyInfo(id);
 			request.setAttribute("bodyInfoList", bodyInfoList);
-			forward.setPath("womanSurveyFormResult.jsp");
+			forward.setPath("/survey/womanSurveyFormResult.jsp");
 		} else {
 			System.out.println("SurveyProAction else 입장1");
 		}

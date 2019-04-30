@@ -18,6 +18,7 @@
 </head>
 <body>
    <jsp:include page="../menubar.jsp"></jsp:include>
+   <jsp:include page="bodyanalysissubmenu.jsp"></jsp:include>
     <div class="contents" id="surveyFormBackColor">
          <form class="mansurveyForm" action="manSurveyForm.pre" method="POST">
             <br><fieldset>
