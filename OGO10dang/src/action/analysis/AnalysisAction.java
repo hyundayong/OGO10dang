@@ -52,11 +52,28 @@ public class AnalysisAction implements Action {
 				bodyInfoList.setGender("W");
 			}
 			AnalysisService analysisService = new AnalysisService();
-			ArrayList<String[]> exerciseList = analysisService.getexerciseList(bodyInfoList);
+			ArrayList<String[]> exerciseList = analysisService.getMatchExercise(bodyInfoList);
+			ArrayList<String[]> exerciseList_four = new ArrayList<String[]>();
+			if(exerciseList.size() > 4) {
+			int[] randnums = new int[4];
+			for(int i = 0; i < 4; i++) {
+				randnums[i] = (int)(Math.random()*exerciseList.size());
+				for(int j = 0; j < i; j++) {
+					if(randnums[i] == randnums[j]) {
+						i--;
+						break;		}
+					}
+				}
+				for(int i = 0; i < randnums.length; i++) {
+					exerciseList_four.add(i, exerciseList.get(randnums[i]));
+				}
+			} else {
+				exerciseList_four = exerciseList;
+			}
 			
-			request.setAttribute("exerciseList", exerciseList);		// 운동명, 운동 링크 저장
+			request.setAttribute("exerciseList", exerciseList_four);		// 운동명, 운동 링크 저장
 			request.setAttribute("bodyInfoList", bodyInfoList);		// 설문조사 결과 모두 저장(실질적으로 bodytype만 필요하긴 함)
-			forward.setPath("/analysis/bodyAnalysis.jsp");			// 체형 분석 결과 페이지로 이동
+			forward.setPath("/survey/bodyAnalysis.jsp");			// 체형 분석 결과 페이지로 이동
 		}
 		return forward;
 	}

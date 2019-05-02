@@ -16,21 +16,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-<title>체형 분석 결과 페이지</title>
-<link rel="stylesheet" href="../css/mainPageStyle.css">
+<title>체형 분석 결과보기 페이지</title>
 </head>
 <body>
-	<jsp:include page="../menubar.jsp"></jsp:include>
-	<jsp:include page="../survey/bodyanalysissubmenu.jsp"></jsp:include>
-	<div class="contents">
-	<h1>체형 분석 결과 페이지</h1>
-	<h1>성별 : <%=bodyInfoList.getGender() %></h1>
-	<h1>이름 : <%=bodyInfoList.getName() %></h1>
-	<h1>체형 : <%=bodyInfoList.getBodytype() %></h1>
-	<% for(int i = 0; i < exerciseList.size(); i++) { %>
-		<p>운동명<%=i+1 %> : <%=exerciseList.get(i)[0] %></p>
-		<p>운동링크<%=i+1 %> : <%=exerciseList.get(i)[1] %></p><br>
-	<% } %>
+	<div id="bodytypeResult">
+	  		<table border="1">
+			<tr>
+				<td> <img src="./image/mainPage2.png" alt="bodyanalysis" style="align:center"/> </td>
+			</tr>
+			<tr>
+				<td class="title"> 체형 분석 결과 페이지 </td>
+				<td><%=bodyInfoList.getBodytype() %></td>
+			</tr>
+			<tr>
+			<td>
+			</td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>

@@ -33,11 +33,13 @@ public class SurveyCompleteCheckAction implements Action {
 			SurveyProService selectSurveyService = new SurveyProService();
 			BodyInfo bodyInfoList = selectSurveyService.getMBodyInfo(id);
 			request.setAttribute("bodyInfoList", bodyInfoList);
+			session.setAttribute("gender", "M");
 			forward.setPath("/survey/manSurveyFormResult.jsp");	// 남자결과페이지로 이동
 		} else if (womanCount) { //여자일때
 			SurveyProService selectSurveyService = new SurveyProService();
 			BodyInfo bodyInfoList = selectSurveyService.getWBodyInfo(id);
 			request.setAttribute("bodyInfoList", bodyInfoList);
+			session.setAttribute("gender", "W");
 			forward.setPath("/survey/womanSurveyFormResult.jsp");	// 여자결과페이지로 이동
 		} else { // 설문조사 기록 없을때
 			forward.setPath("/survey/surveyGenderSelect.jsp");

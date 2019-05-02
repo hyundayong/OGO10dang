@@ -10,12 +10,12 @@ function loginCheck(idCheck) {
 	}
 }
 
-// 체형 분석 결과 확인 시 로그인 여부, 체형분석 여부 검사
+//체형 분석 결과 확인 시 로그인 여부, 체형분석 여부 검사
 function loginSurveyCheck(idCheck) {
 	if(idCheck == 'null') {
 		alert("먼저 로그인을 해주세요.");
 		document.location.href="http://localhost:8088/ogo10dang_yk/loginForm.jsp";
 	} else {
-		document.location.href="bodyAnalysis.pre";
+		document.location.href="analysisReadyCheck.pre";
 	}
 }

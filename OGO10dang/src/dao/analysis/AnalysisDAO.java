@@ -21,7 +21,7 @@ public class AnalysisDAO {
 	}
 	
 	// 남자 운동명, 운동 링크 ArrayList로 반환
-	public ArrayList<String[]> getexerciseList_M(BodyInfo bodyinfo) {
+	public ArrayList<String[]> getMatchExercise_M(BodyInfo bodyinfo) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ArrayList<String[]> exerciseList = new ArrayList<String[]>();
@@ -31,7 +31,7 @@ public class AnalysisDAO {
 			rs = pstmt.executeQuery();
 			int i = 0;
 			while(rs.next()) {
-				String[] exercise = new String[] {	rs.getString(1), "#"	};	//rs.getString(2); 넣어줘야함
+				String[] exercise = new String[] {	rs.getString(1), rs.getString(2), rs.getString(3)	};	//rs.getString(2), rs.getString(3); 넣어줘야함
 				exerciseList.add(i, exercise);	i++;
 			}
 		} catch(Exception e) {
@@ -43,14 +43,30 @@ public class AnalysisDAO {
 	}
 	
 	// 남자 운동명, 운동 링크 ArrayList로 반환
-	public ArrayList<String[]> getexerciseList_W(BodyInfo bodyinfo) {
-		// 남자 완료되면 여자도 추가할 것
-		return null;
+	public ArrayList<String[]> getMatchExercise_W(BodyInfo bodyinfo) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<String[]> exerciseList = new ArrayList<String[]>();
+		try {
+			String sql = exerciseMakeSQL_W(bodyinfo);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			int i = 0;
+			while(rs.next()) {
+				String[] exercise = new String[] {	rs.getString(1), rs.getString(2), rs.getString(3)	};	//rs.getString(2); 넣어줘야함
+				exerciseList.add(i, exercise);	i++;
+			}
+		} catch(Exception e) {
+			System.out.println("AnalysisDAO : getexerciseList_W 에러 : " + e);
+		} finally {
+			close(rs); close(pstmt);
+		}
+		return exerciseList;
 	}
 	
 	// 운동 조회하는 sql문 작성
 	public String exerciseMakeSQL_M(BodyInfo bodyinfo) {
-		String sql = "SELECT EXERCISE, EXERCISELINK FROM MEXERCISEDICT_HM WHERE ";
+		String sql = "SELECT EXERCISE, EXERCISELINK, EXERCISEPHOTO FROM MEXERCISEDICT_HM WHERE ";
 		ArrayList<String> subsql = new ArrayList<String>();
 		if(bodyinfo.getExercise() == 4) {
 			sql += "GRADE BETWEEN 3 AND 4 ";
@@ -75,7 +91,41 @@ public class AnalysisDAO {
 		}
 		
 		if(subsql.size() > 0) {
-			sql += "INTERSECT SELECT EXERCISE, EXERCISELINK FROM MEXERCISEDICT_HM WHERE ";
+			sql += "INTERSECT SELECT EXERCISE, EXERCISELINK, EXERCISEPHOTO FROM MEXERCISEDICT_HM WHERE ";
+			for(int j = 0; j < subsql.size(); j++) {
+				sql += subsql.get(j) + " OR ";
+			}
+			sql = sql.substring(0, sql.length()-4);
+		}
+		return sql;
+	}
+	private String exerciseMakeSQL_W(BodyInfo bodyinfo) {
+		String sql = "SELECT EXERCISE, EXERCISELINK, EXERCISEPHOTO FROM WEXERCISEDICT_HM WHERE ";
+		ArrayList<String> subsql = new ArrayList<String>();
+		if(bodyinfo.getExercise() == 4) {
+			sql += "GRADE BETWEEN 3 AND 4 ";
+		} else {
+			sql += "GRADE=" + bodyinfo.getExercise() + " ";
+		}
+		int i = 0;
+		if(bodyinfo.getArm() % 2 == 1) {
+			subsql.add(i, "ARM='Y'");	i++;
+		}
+		if(bodyinfo.getBelly() % 2 == 1) {
+			subsql.add(i, "BELLY='Y'");	i++;
+		}
+		if(bodyinfo.getThigh() == 1) {
+			subsql.add(i, "THIGH='Y'");	i++;
+		}
+		if(bodyinfo.getCalf() >= 3) {
+			subsql.add(i, "CALF='Y'");	i++;
+		}
+		if(bodyinfo.getHip() % 2 == 1) {
+			subsql.add(i, "HIP='Y'");	i++;
+		}
+		
+		if(subsql.size() > 0) {
+			sql += "INTERSECT SELECT EXERCISE, EXERCISELINK, EXERCISEPHOTO FROM WEXERCISEDICT_HM WHERE ";
 			for(int j = 0; j < subsql.size(); j++) {
 				sql += subsql.get(j) + " OR ";
 			}
