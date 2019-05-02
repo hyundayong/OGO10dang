@@ -261,7 +261,7 @@ public class SurveyDAO {
 		ResultSet rs = null;
 		BodyInfo bodyinfoSettingBean = null;
 		
-		String sql = "SELECT NAME, AGE, HEIGHT, WEIGHT, SMOKE, DRINK, EXERCISE, PURPOSE, ARM, BELLY, THIGH, CALF, HIP FROM WBODYINFO_HM WHERE ID=?";
+		String sql = "SELECT NAME, AGE, HEIGHT, WEIGHT, SMOKE, DRINK, EXERCISE, PURPOSE, ARM, BELLY, THIGH, CALF, HIP, BODYTYPE FROM WBODYINFO_HM WHERE ID=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -283,7 +283,7 @@ public class SurveyDAO {
 				bodyinfoSettingBean.setThigh(rs.getInt(11));
 				bodyinfoSettingBean.setCalf(rs.getInt(12));
 				bodyinfoSettingBean.setHip(rs.getInt(13));
-				
+				bodyinfoSettingBean.setBodytype(rs.getString(14));
 			
 				
 			}
@@ -304,7 +304,7 @@ public class SurveyDAO {
 		
 		System.out.println("DAO(M) : session ID = "+id);
 		System.out.println("selectMBodyInfo DAO ¿‘¿Â ");
-		String sql = "SELECT NAME, AGE, HEIGHT, WEIGHT, SMOKE, DRINK, EXERCISE, PURPOSE, ARM, CHEST, SHOULDER, BELLY, LEG FROM MBODYINFO_HM WHERE ID=?";
+		String sql = "SELECT NAME, AGE, HEIGHT, WEIGHT, SMOKE, DRINK, EXERCISE, PURPOSE, ARM, CHEST, SHOULDER, BELLY, LEG, BODYTYPE FROM MBODYINFO_HM WHERE ID=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -322,10 +322,11 @@ public class SurveyDAO {
 				bodyinfoSettingBean.setExercise(rs.getInt(7));
 				bodyinfoSettingBean.setPurpose(rs.getString(8));
 				bodyinfoSettingBean.setArm(rs.getInt(9));
-				bodyinfoSettingBean.setBelly(rs.getInt(10));
-				bodyinfoSettingBean.setThigh(rs.getInt(11));
-				bodyinfoSettingBean.setCalf(rs.getInt(12));
-				bodyinfoSettingBean.setHip(rs.getInt(13));
+				bodyinfoSettingBean.setChest(rs.getInt(10));
+				bodyinfoSettingBean.setShoulder(rs.getInt(11));
+				bodyinfoSettingBean.setBelly(rs.getInt(12));
+				bodyinfoSettingBean.setLeg(rs.getInt(13));
+				bodyinfoSettingBean.setBodytype(rs.getString(14));
 			}
 			
 		} catch (Exception e ) {

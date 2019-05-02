@@ -16,6 +16,6 @@ function loginSurveyCheck(idCheck) {
 		alert("먼저 로그인을 해주세요.");
 		document.location.href="http://localhost:8088/ogo10dang_work/loginForm.jsp";
 	} else {
-		document.location.href="analysisReadyCheck.pre";
+		document.location.href="bodyAnalysis.pre";
 	}
 }

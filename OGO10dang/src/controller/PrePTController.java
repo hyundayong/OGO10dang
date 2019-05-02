@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.analysis.AnalysisReadyCheckAction;
+import action.analysis.AnalysisAction;
 import action.survey.SurveyCompleteCheckAction;
 import action.survey.SurveyProAction;
 import action.survey.SurveyResultProAction;
@@ -59,15 +59,15 @@ public class PrePTController extends HttpServlet {
 	    		} catch(Exception e) {
 	    			e.printStackTrace();
 	    		}
-	    	} else if (command.equals("/survey/analysisReadyCheck.pre")){
-	    		action= new AnalysisReadyCheckAction();
+	    	} else if (command.equals("/survey/bodyAnalysis.pre")){		// 결과 보기 페이지로 이동할 시
+	    		action= new AnalysisAction();
 	    		try {
 	    			forward = action.execute(request,  response);
 	    			forward.setRedirect(false);
 	    		} catch(Exception e) {
 	    			e.printStackTrace();
 	    		}
-	    	} 
+	    	}
 	    	
 	    	if(forward != null) {
 	    		if(forward.isRedirect()) {
