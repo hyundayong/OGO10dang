@@ -27,4 +27,17 @@ public class AnalysisService {
 		return exerciseList;
 	}
 	
+	public ArrayList<String[]> getMatchFood(BodyInfo bodyinfo) {
+		ArrayList<String[]> foodList = null;
+		Connection conn = getConnection();
+		AnalysisDAO analysisDAO = AnalysisDAO.getInstance();
+		analysisDAO.setConnection(conn);
+		
+		if(bodyinfo.getGender().equals("M") || bodyinfo.getGender().equals("W")) {
+			foodList = analysisDAO.getMatchFood(bodyinfo);
+		}
+		close(conn);
+		return foodList;
+	}
+	
 }

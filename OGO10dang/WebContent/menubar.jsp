@@ -103,7 +103,7 @@
 	<div class="header">
       <nav class="navbar navbar-expand-sm navbarstyle fixed-top">
          <ul class="navbar-nav navbar-left">
-            <img src="image/mainlogo.png" alt="Logo"  onClick="location.href='http://localhost:8088/ogo10dang_yk/mainPage.jsp';" style="width:200x; height: 40px; cursor:pointer;">
+            <img src="image/mainlogo.png" alt="Logo"  onClick="location.href='http://localhost:8088/ogo10dang_yk/mainPage.jsp';" style="width:280px; height: 40px; cursor:pointer;">
          </ul>
          <ul class="navbar-nav ul_mainmenu">
             <li class="nav-item li_mainmenu">

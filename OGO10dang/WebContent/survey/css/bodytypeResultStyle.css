@@ -1,0 +1,19 @@
+@charset "UTF-8";
+<style>
+	body {
+      width: auto;
+      margin: 200px;
+   }
+   	.bodytype_content {
+   		margin: 110px auto 80px auto;
+   		width: 600px;
+   		height: 800px;
+
+   		font-family:"배달의민족 도현";
+   	}
+	.bodytype_content td {
+		text-align:center;
+
+		padding:10px;
+	}
+</style>

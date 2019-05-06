@@ -3,7 +3,6 @@
 <%@ page import = "vo.survey.BodyInfo" %>
 <%@ page import = "java.util.ArrayList" %>
 <%
-	BodyInfo bodyInfoList = (BodyInfo)request.getAttribute("bodyInfoList");
 	ArrayList<String[]> exerciseList = (ArrayList<String[]>)request.getAttribute("exerciseList");
 %>
 <!DOCTYPE html>
@@ -23,22 +22,27 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%--
+운동명<%=i+1 %> : <%=exerciseList.get(i)[0] %>
+운동링크<%=i+1 %> : <%=exerciseList.get(i)[1] %>>
+운동사진명<%=i+1 %> : <%=exerciseList.get(i)[2] %>
 
+ --%>
 
 	<div class="content">
 		<table class="photoTable">
 			<tr>
 				<td> 
-					<a href="../mainPage.jsp" class="photo" ><img src="../image/mainPage1.jpg" alt ="운동사진"/></a>
+					<a href="<%=exerciseList.get(0)[1] %>" class="photo" target="_blank"><img src="./image/exercise/<%=exerciseList.get(0)[2] %>" alt ="운동사진"/></a>		
 				</td>
 				<td> 
-					<a href="../mainPage.jsp" class="photo"><img src="../image/mainPage1.jpg" alt ="운동사진"/></a>
+					<a href="<%=exerciseList.get(1)[1] %>" class="photo" target="_blank"><img src="./image/exercise/<%=exerciseList.get(1)[2] %>" alt ="운동사진"/></a>
 				</td>
 				<td> 
-					<a href="../mainPage.jsp" class="photo"><img src="../image/mainPage1.jpg" alt ="운동사진"/></a>
+					<a href="<%=exerciseList.get(2)[1] %>" class="photo" target="_blank"><img src="./image/exercise/<%=exerciseList.get(2)[2] %>" alt ="운동사진"/></a>
 				</td>
 				<td> 
-					<a href="../mainPage.jsp" class="photo"><img src="../image/mainPage1.jpg" alt ="운동사진"/></a>
+					<a href="<%=exerciseList.get(3)[1] %>" class="photo" target="_blank"><img src="./image/exercise/<%=exerciseList.get(3)[2] %>" alt ="운동사진"/></a>
 				</td>
 			</tr>
 			<tr>
@@ -55,7 +59,7 @@
 			</tr>
 		</table>
 	</div>
-	
+	 <jsp:include page="../footer.jsp"></jsp:include>
 	
  
 </body>

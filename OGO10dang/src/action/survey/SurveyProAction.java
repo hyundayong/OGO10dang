@@ -93,7 +93,7 @@ public class SurveyProAction implements Action {
 			bodyinfoBean.setHip(Integer.parseInt(request.getParameter("hip")));
 			surveyProService.insertWBodyInfo(bodyinfoBean);
 		} else {
-			System.out.println("해당 Action에서 String gender 확인 불가");
+			System.out.println("SurveyProAction에서 String gender 확인 불가");
 		}
 		
 		forward = new ActionForward();

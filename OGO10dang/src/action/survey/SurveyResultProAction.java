@@ -62,8 +62,8 @@ public class SurveyResultProAction implements Action {
 		bodyinfoBean.setName(request.getParameter("name"));
 		bodyinfoBean.setGender(request.getParameter("gender"));
 		bodyinfoBean.setAge(Integer.parseInt(request.getParameter("age")));
-		bodyinfoBean.setAge(Integer.parseInt(request.getParameter("height")));
-		bodyinfoBean.setAge(Integer.parseInt(request.getParameter("weight")));
+		bodyinfoBean.setHeight(Integer.parseInt(request.getParameter("height")));
+		bodyinfoBean.setWeight(Integer.parseInt(request.getParameter("weight")));
 		
 		bodyinfoBean.setSmoke(request.getParameter("smoke"));
 		bodyinfoBean.setDrink(Integer.parseInt(request.getParameter("drink")));
@@ -71,25 +71,38 @@ public class SurveyResultProAction implements Action {
 		bodyinfoBean.setPurpose(request.getParameter("purpose"));
 		
 		bodyinfoBean.setArm(Integer.parseInt(request.getParameter("arm")));
-		bodyinfoBean.setChest(Integer.parseInt(request.getParameter("chest")));
-		bodyinfoBean.setShoulder(Integer.parseInt(request.getParameter("shoulder")));
 		bodyinfoBean.setBelly(Integer.parseInt(request.getParameter("belly")));
-		bodyinfoBean.setLeg(Integer.parseInt(request.getParameter("leg")));
 		
 		bodyinfoBean.setScore(score);
 		bodyinfoBean.setMuscle(muscle);
 		bodyinfoBean.setBodytype(bodytype);
 		
 		SurveyProService surveyProService = new SurveyProService();
-		surveyProService.updateMBodyInfo(bodyinfoBean);
+		
+		if (bodyinfoBean.getGender().equals("man")) {	// 남자일때 - 공통부분외에 추가되는 설문항목 3가지 더 저장하고 연결
+			bodyinfoBean.setChest(Integer.parseInt(request.getParameter("chest")));
+			bodyinfoBean.setShoulder(Integer.parseInt(request.getParameter("shoulder")));
+			bodyinfoBean.setLeg(Integer.parseInt(request.getParameter("leg")));
+			surveyProService.updateMBodyInfo(bodyinfoBean);
+			
+		} else if (bodyinfoBean.getGender().equals("woman")) { // 여자일때 - 공통부분외에 추가되는 설문항목 3가지 저장하고 연결
+			bodyinfoBean.setThigh(Integer.parseInt(request.getParameter("thigh")));
+			bodyinfoBean.setCalf(Integer.parseInt(request.getParameter("calf")));
+			bodyinfoBean.setHip(Integer.parseInt(request.getParameter("hip")));
+			surveyProService.updateWBodyInfo(bodyinfoBean);
+		} else {
+			System.out.println("SurveyResultProAction에서 String gender 확인 불가");
+		}
 		
 		forward = new ActionForward();
 		forward.setRedirect(true);
 		
 		// 완료하고나서 어디로 이동할지
 		if (request.getParameter("gender").equals("man")) {
+			request.setAttribute("bodyInfoList", bodyinfoBean);
 			forward.setPath("/survey/manSurveyFormResult.jsp");
 		} else if (request.getParameter("gender").equals("woman")) {
+			request.setAttribute("bodyInfoList", bodyinfoBean);
 			forward.setPath("/survey/womanSurveyFormResult.jsp");
 		} else {
 			System.out.println("SurveyProAction else 입장1");

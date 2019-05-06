@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import = "vo.survey.BodyInfo" %>
-<%@ page import = "java.util.ArrayList" %>
-<%
-	BodyInfo bodyInfoList = (BodyInfo)request.getAttribute("bodyInfoList");
-	ArrayList<String[]> exerciseList = (ArrayList<String[]>)request.getAttribute("exerciseList");
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +18,7 @@
 <style>
 	#foodResult {display:none;}
 	#exerciseResult {display:none;}
-	#bodytypeResult{ display: 'block'}
+	#bodytypeResult{ display: block;}
 </style>
 
 <script>
@@ -34,6 +29,9 @@
 	    exer.style.display = 'block';
         body.style.display = 'none';
         food.style.display = 'none';  
+        document.getElementById('bodytypeicon').src = "./image/체형.png";
+        document.getElementById('foodicon').src = "./image/음식.png";
+        document.getElementById('exerciseicon').src = "./image/운동2.png";
 	}
 	function bodytypeDisplay(){
 	    var food = document.getElementById("foodResult");
@@ -42,6 +40,9 @@
 	    exer.style.display = 'none';
         body.style.display = 'block';
         food.style.display = 'none';  
+        document.getElementById('bodytypeicon').src = "./image/체형2.png";
+        document.getElementById('foodicon').src = "./image/음식.png";
+        document.getElementById('exerciseicon').src = "./image/운동.png";
 	}
 	function foodDisplay(){
 	    var food = document.getElementById("foodResult");
@@ -50,6 +51,9 @@
 	    exer.style.display = 'none';
         body.style.display = 'none';
         food.style.display = 'block';
+        document.getElementById('bodytypeicon').src = "./image/체형.png";
+        document.getElementById('foodicon').src = "./image/음식2.png";
+        document.getElementById('exerciseicon').src = "./image/운동.png";
 	}
 </script>
 
@@ -59,38 +63,24 @@
 	<jsp:include page="../menubar.jsp"></jsp:include>
 	<jsp:include page="../survey/bodyanalysissubmenu.jsp"></jsp:include>
 	<div class="contents">
-	<%-- 
-	<h1>체형 분석 결과 페이지</h1>
-	<h1>성별 : <%=bodyInfoList.getGender() %></h1>
-	<h1>이름 : <%=bodyInfoList.getName() %></h1>
-	<h1>체형 : <%=bodyInfoList.getBodytype() %></h1>
-	<% for(int i = 0; i < exerciseList.size(); i++) { %>
-		<p>운동명<%=i+1 %> : <%=exerciseList.get(i)[0] %></p>
-		<p>운동링크<%=i+1 %> : <a href="<%=exerciseList.get(i)[1] %>">링크</a></p>
-		<p>운동사진명<%=i+1 %> : <%=exerciseList.get(i)[2] %></p><br><br>
-	<% } %>
-	--%>
-	<table>
+	<table class="icons">
 		<tr>
-		<td><img class="icon1" src="./image/운동.png" alt="bodyLevel" onClick="bodytypeDisplay()" style="cursor:pointer">	</td>
-		<td><img class="icon2" src="./image/음식.png" alt="음식"  onClick="foodDisplay()" style="cursor:pointer">	</td>
-		<td><img class="icon3" src="./image/운동.png" alt="운동" onClick="exerciseDisplay()" style="cursor:pointer">	</td>
+		<td><img class="icon1" id="bodytypeicon" src="./image/체형2.png" alt="bodyType" onClick="bodytypeDisplay()" style="cursor:pointer">	</td>
+		<td><img class="icon2" id="foodicon" src="./image/음식.png" alt="음식"  onClick="foodDisplay()" style="cursor:pointer">	</td>
+		<td><img class="icon3" id="exerciseicon" src="./image/운동.png" alt="운동" onClick="exerciseDisplay()" style="cursor:pointer">	</td>
 		</tr>
 	</table>
 	
-	
 	<div id="bodytypeResult">
-	   		<jsp:include page="bodytypeResult.jsp"></jsp:include>
+	   	<jsp:include page="bodytypeResult.jsp"></jsp:include>
 	</div>
 	
 	<div id="foodResult">
-	   		<jsp:include page="foodResult.jsp"></jsp:include>
+	   	<jsp:include page="foodResult.jsp"></jsp:include>
+	</div>  	
+	<div id="exerciseResult">
+	   	<jsp:include page="exerciseResult.jsp"></jsp:include>
 	</div>
-	   	
-	   	   	
-	   	<div id="exerciseResult">
-	   		<jsp:include page="exerciseResult.jsp"></jsp:include>
-	   	</div>
 	</div>
 </body>
 </html>

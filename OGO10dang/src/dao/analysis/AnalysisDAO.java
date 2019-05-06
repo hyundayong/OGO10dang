@@ -133,4 +133,56 @@ public class AnalysisDAO {
 		}
 		return sql;
 	}
+	public ArrayList<String[]> getMatchFood(BodyInfo bodyinfo) { // 작성된 SQL문에서 음식명과 음식사진을 ArrayList에 저장하는 메소드
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<String[]> foodList = new ArrayList<String[]>();
+		String sql = "";
+		try {
+			sql = foodMakeSQL(bodyinfo);
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				String[] food = new String[] {rs.getString(1), rs.getString(2) };
+				foodList.add(food);
+			}
+		} catch(Exception e) {
+			System.out.println("getMatchFood 에러 : " + e);
+		} finally {
+			close(pstmt); close(rs);
+		}
+		return foodList;
+	}
+	
+	public String foodMakeSQL(BodyInfo bodyinfo) { // FOODDICT_HM에서 음식명과 음식사진을 가져오는 SQL문 작성 메소드
+		String sql = null;
+		try {
+			sql = "SELECT FOOD, FOODPHOTO FROM FOODDICT_HM WHERE ";
+			if(bodyinfo.getSmoke().equals("y")) {
+				sql += "SMOKE = 'Y' OR ";
+			} else if(bodyinfo.getSmoke().equals("n")) {
+				sql += "SMOKE = 'N' OR ";
+			}
+			if((bodyinfo.getDrink() == 3) || (bodyinfo.getDrink() == 4)) {
+				sql += "DRINK = 'Y' OR ";
+			} else if((bodyinfo.getDrink() == 1) || (bodyinfo.getDrink() == 2)) {
+				sql += "DRINK = 'N' OR ";
+			}
+			if(bodyinfo.getPurpose().equals("diet")) {
+				sql += "DIET = 'Y' OR ";
+			}
+			if(bodyinfo.getPurpose().equals("health")) {
+				sql += "HEALTH = 'Y' OR ";
+			}
+			if(bodyinfo.getPurpose().equals("muscle")) {
+				sql += "MUSCLE = 'Y' OR ";
+			}
+			sql = sql.substring(0, sql.length()-4); // SQL문 마지막에 AND를 삭제
+		} catch(Exception e) {
+			System.out.println("foodMakeSQL 에러 : " + e);
+		} 
+		return sql;
+		
+		
+	} 
 }
