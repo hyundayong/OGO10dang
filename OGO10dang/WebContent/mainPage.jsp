@@ -17,10 +17,18 @@
 </head>
 <body>
 	<jsp:include page="menubar.jsp"></jsp:include>
-   	<div class="container">
-   	<img class="imgwid1" src="image/mainPage3.jpg" alt="mainPage3" style="width:500px; height:auto;" />
-   	<img class="imgwid2"src="image/mainPage1.jpg" alt="mainPage1" style="width:500px; height:auto;" />
-   	</div>
-    <jsp:include page="footer.jsp"></jsp:include>
+   	<div class="container" >
+   	<img class="imgwid1" src="image/mainPage2.png" alt="mainPage2"  />	
+	<img class="imgwid2" src="image/mainPage4.png" alt="mainPage4"  />
+	<img class="imgwid3" src="image/mainPage3.jpg" alt="mainPage3"  />
+		<h2 class="headline1">
+			OGO10dang
+		</h2>
+		<h3 class="headline1_1">
+		<br>체형을 분석을 통해<br><br>
+			운동 일정 및 식단 관리를 해드립니다. 
+		</h3>
+	</div>
+    <div><jsp:include page="footer.jsp"></jsp:include></div>
 </body>
 </html>

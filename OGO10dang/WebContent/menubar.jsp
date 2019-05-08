@@ -103,14 +103,14 @@
 	<div class="header">
       <nav class="navbar navbar-expand-sm navbarstyle fixed-top">
          <ul class="navbar-nav navbar-left">
-            <img src="image/mainlogo.png" alt="Logo"  onClick="location.href='http://localhost:8088/ogo10dang_work/mainPage.jsp';" style="width:200x; height: 40px; cursor:pointer;">
+            <img src="image/mainlogo.png" alt="Logo"  onClick="location.href='http://localhost:8088/ogo0507_1217/mainPage.jsp';" style="width:280px; height: 40px; cursor:pointer;">
          </ul>
          <ul class="navbar-nav ul_mainmenu">
             <li class="nav-item li_mainmenu">
-               <a class="nav-link" onClick="location.href='http://localhost:8088/ogo10dang_work/survey/bodyanalysisIntro.jsp';" href="#">체형분석</a>           
+               <a class="nav-link" onClick="location.href='http://localhost:8088/ogo0507_1217/survey/bodyanalysisIntro.jsp';" href="#">체형분석</a>           
             </li>
             <li class="nav-item li_mainmenu">
-               <a class="nav-link" onClick="location.href='managementForm.jsp';" href="#"> 관리 </a>   
+               <a class="nav-link" onClick="location.href='http://localhost:8088/ogo0507_1217/management/managementStart.jsp';" href="#"> 관리 </a>   
             </li>
             <li class="nav-item li_mainmenu">
                <a class="nav-link" href="#"> 상세 </a>   
@@ -130,10 +130,10 @@
             	if(id == null) {
             %>
             <li class="nav-item li_membermenu" id="bannerDel">
-               <a class="nav-link" href="#" onClick="location.href='http://localhost:8088/ogo10dang_work/loginForm.jsp';">로그인</a>   
+               <a class="nav-link" href="#" onClick="location.href='http://localhost:8088/ogo0507_1217/loginForm.jsp';">로그인</a>   
             </li>
             <li class="nav-item li_membermenu" id="bannerDel">
-               <a class="nav-link" href="#" onClick="location.href='http://localhost:8088/ogo10dang_work/registrationTerms.jsp';">회원가입</a>   
+               <a class="nav-link" href="#" onClick="location.href='http://localhost:8088/ogo0507_1217/registrationTerms.jsp';">회원가입</a>   
             </li>
             <%	} %>
          </ul>

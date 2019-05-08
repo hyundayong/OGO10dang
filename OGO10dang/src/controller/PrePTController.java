@@ -26,8 +26,8 @@ public class PrePTController extends HttpServlet {
 	    	Action action = null;
 	    	ActionForward forward = null;
 	    	
-	    	/*	requestURI : /ogo10dang_work/survey/surveyCompleteCheck.pre
-			*	contextPath : /ogo10dang_work
+	    	/*	requestURI : /ogo10dang_yk/survey/surveyCompleteCheck.pre
+			*	contextPath : /ogo10dang_yk
 			*	command : /survey/surveyCompleteCheck.pre
 	    	 */
 	    	String requestURI = request.getRequestURI();

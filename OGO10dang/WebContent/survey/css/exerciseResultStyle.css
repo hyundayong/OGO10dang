@@ -1,0 +1,41 @@
+@charset "UTF-8";
+<style>
+	body {
+
+	}
+	.content {
+		margin-top:130px;
+		padding: 20px;
+		margin-bottom:150px;
+	}
+	.photo img {
+		width: 400px;
+		height: auto;
+	}
+	.photo img:hover {
+		opacity:0.7;
+	}
+	.photo {
+		margin : 15px;
+	}
+	.exercisetitle {
+		padding:15px 20px;
+		text-align:center;
+		font-family:"Rix고딕 B";
+		font-size: 30px;
+		background-color: #ededed;
+	} 
+	.exercisesub {
+		padding:10px 20px;
+		font-family:"나눔스퀘어";
+		font-size:20px;
+		padding: 10px;
+		line-height: 1.5em;
+	}
+
+	.photoTable {
+		text-align:center;
+	}
+	
+
+</style>

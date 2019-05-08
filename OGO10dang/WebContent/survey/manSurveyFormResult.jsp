@@ -4,6 +4,56 @@
 <%
 	BodyInfo bodyInfoList = (BodyInfo) request.getAttribute("bodyInfoList");
 %>
+<%!
+	public String checkedShow(BodyInfo bodyInfoList, String var, String value) {
+		String check = "";
+		if(var.equals("smoke")) {
+			if(bodyInfoList.getSmoke().equals(value)){
+				check = "checked";
+			}
+		} else if(var.equals("purpose")) {
+			if(bodyInfoList.getPurpose().equals(value)) {
+				check = "checked";
+			}
+		}
+	return check;
+	}
+
+	public String checkedShow(BodyInfo bodyInfoList, String var, int value) {
+	String check = "";
+	if(var.equals("drink")) {
+		if(bodyInfoList.getDrink() == value){
+			check = "checked";	
+		}
+	} else if(var.equals("exercise")) {
+		if(bodyInfoList.getExercise() == value){
+			check = "checked";
+		}
+	} else if(var.equals("arm")) {
+		if(bodyInfoList.getArm() == value) {
+			check = "checked";
+		}
+	} else if(var.equals("chest")){
+		if(bodyInfoList.getChest() == value) {
+			check = "checked";
+		}
+	} else if(var.equals("shoulder")){
+		if(bodyInfoList.getShoulder() == value) {
+			check = "checked";
+		}
+	} else if(var.equals("belly")){
+		if(bodyInfoList.getBelly() == value) {
+			check = "checked";
+		}
+	} else if(var.equals("leg")){
+		if(bodyInfoList.getLeg() == value) {
+			check = "checked";
+		}
+	}
+	return check;
+	}
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,26 +98,26 @@
                <legend id="legendwid">건강 & 운동 정보</legend>
                   <table>
                   <tr><td class="labelwidth"><label for="smoke">흡연 유무</label></td>
-                     <td><input type="radio" name="smoke" value="y" checked/> 흡연</td>
-                     <td><input type="radio" name="smoke" value="n" /> 비흡연</td></tr>
+                     <td><input type="radio" name="smoke" value="y" <%=checkedShow(bodyInfoList, "smoke", "y") %>/> 흡연</td>
+                     <td><input type="radio" name="smoke" value="n" <%=checkedShow(bodyInfoList, "smoke", "n") %>/> 비흡연</td></tr>
                   <tr><td class="labelwidth"><label for="drink">음주 횟수</label></td>
-                     <td><input type="radio" name="drink" value="1" checked/> 한달 0 ~ 2회</td>
-                     <td><input type="radio" name="drink" value="2" /> 한달 3 ~ 5회</td>
-                     <td><input type="radio" name="drink" value="3" /> 일주일 2 ~ 3회</td>
-                     <td><input type="radio" name="drink" value="4" /> 매일</td></tr>
+                     <td><input type="radio" name="drink" value="1" <%=checkedShow(bodyInfoList, "drink", 1) %>/> 한달 0 ~ 2회</td>
+                     <td><input type="radio" name="drink" value="2" <%=checkedShow(bodyInfoList, "drink", 2) %>/> 한달 3 ~ 5회</td>
+                     <td><input type="radio" name="drink" value="3" <%=checkedShow(bodyInfoList, "drink", 3) %>/> 일주일 2 ~ 3회</td>
+                     <td><input type="radio" name="drink" value="4" <%=checkedShow(bodyInfoList, "drink", 4) %>/> 매일</td></tr>
                   <tr><td rowspan="4" class="labelwidth"><label for="exercise">운동 능력</label></td>
-                     <td><input type="radio" name="exercise" value="1" checked/> 활동 적음 </td>
+                     <td><input type="radio" name="exercise" value="1" <%=checkedShow(bodyInfoList, "exercise", 1) %>/> 활동 적음 </td>
                      <td>(일반적인 하루 활동)</td></tr>
-                  <tr><td><input type="radio" name="exercise" value="2" /> 약간 활동적 </td>
+                  <tr><td><input type="radio" name="exercise" value="2" <%=checkedShow(bodyInfoList, "exercise", 2) %>/> 약간 활동적 </td>
                      <td colspan="3">(적당한 운동 하루 30~60분)</td></tr>
-                  <tr><td><input type="radio" name="exercise" value="3" /> 활동적 </td>
+                  <tr><td><input type="radio" name="exercise" value="3" <%=checkedShow(bodyInfoList, "exercise", 3) %>/> 활동적 </td>
                      <td colspan="3">(적당한 운동 60분 이상)</td></tr>
-                  <tr><td><input type="radio" name="exercise" value="4" /> 매우 활동적</td>
+                  <tr><td><input type="radio" name="exercise" value="4" <%=checkedShow(bodyInfoList, "exercise", 4) %>/> 매우 활동적</td>
                      <td colspan="3">(고강도 운동 60분 이상)</td></tr>
                   <tr><td class="labelwidth"><label for="purpose">운동 목적</label></td>
-                     <td><input type="radio" name="purpose" value="diet" checked/> 다이어트</td>
-                     <td><input type="radio" name="purpose" value="health" /> 체력증진</td>
-                     <td><input type="radio" name="purpose" value="muscle" /> 근력증가</td>
+                     <td><input type="radio" name="purpose" value="diet" <%=checkedShow(bodyInfoList, "purpose", "diet") %>/> 다이어트</td>
+                     <td><input type="radio" name="purpose" value="health" <%=checkedShow(bodyInfoList, "purpose", "health") %>/> 체력증진</td>
+                     <td><input type="radio" name="purpose" value="muscle" <%=checkedShow(bodyInfoList, "purpose", "muscle") %>/> 근력증가</td>
                   </tr>
  				</table>
             </fieldset><br>
@@ -76,33 +126,33 @@
                <legend id="legendwid">체형 정보</legend>
                <table>
                   <tr><td class="labelwidth"><label for="arm">팔</label></td>
-                     <td><input type="radio" name="arm" value="1" checked/> 마름</td>
-                     <td><input type="radio" name="arm" value="2" /> 보통</td>
-                     <td><input type="radio" name="arm" value="3" /> 지방형</td>
-                     <td><input type="radio" name="arm" value="4" /> 근육형</td></tr>
+                     <td><input type="radio" name="arm" value="1" <%=checkedShow(bodyInfoList, "arm", 1) %>/> 마름</td>
+                     <td><input type="radio" name="arm" value="2" <%=checkedShow(bodyInfoList, "arm", 2) %>/> 보통</td>
+                     <td><input type="radio" name="arm" value="3" <%=checkedShow(bodyInfoList, "arm", 3) %>/> 지방형</td>
+                     <td><input type="radio" name="arm" value="4" <%=checkedShow(bodyInfoList, "arm", 4) %>/> 근육형</td></tr>
                   <tr><td class="labelwidth"><label for="chest">가슴</label></td>
-                     <td><input type="radio" name="chest" value="1" checked/> 마름</td>
-                     <td><input type="radio" name="chest" id="chest2" value="2" /> <label for="chest2">보통</label></td>
-                     <td><input type="radio" name="chest" value="3" /> 지방형</td>
-                     <td><input type="radio" name="chest" value="4" /> 근육형</td></tr>
+                     <td><input type="radio" name="chest" value="1" <%=checkedShow(bodyInfoList, "chest", 1) %>/> 마름</td>
+                     <td><input type="radio" name="chest" id="chest2" value="2" <%=checkedShow(bodyInfoList, "chest", 2) %>/> <label for="chest2">보통</label></td>
+                     <td><input type="radio" name="chest" value="3" <%=checkedShow(bodyInfoList, "chest", 3) %>/> 지방형</td>
+                     <td><input type="radio" name="chest" value="4" <%=checkedShow(bodyInfoList, "chest", 4) %>/> 근육형</td></tr>
                   <tr><td class="labelwidth"><label for="shoulder">어깨</label></td>
-                     <td><input type="radio" name="shoulder" value="1" checked/> 좁은편</td>
-                     <td><input type="radio" name="shoulder" value="2" /> 보통</td>
-                     <td><input type="radio" name="shoulder" value="3" /> 넓은편</td></tr>
+                     <td><input type="radio" name="shoulder" value="1" <%=checkedShow(bodyInfoList, "shoulder", 1) %>/> 좁은편</td>
+                     <td><input type="radio" name="shoulder" value="2" <%=checkedShow(bodyInfoList, "shoulder", 2) %>/> 보통</td>
+                     <td><input type="radio" name="shoulder" value="3" <%=checkedShow(bodyInfoList, "shoulder", 3) %>/> 넓은편</td></tr>
                   <tr><td class="labelwidth"><label for="belly">복부</label></td>
-                     <td><input type="radio" name="belly" value="1" checked/> 마름</td>
-                     <td><input type="radio" name="belly" value="2" /> 보통</td>
-                     <td><input type="radio" name="belly" value="3" /> 지방형</td>
-                     <td><input type="radio" name="belly" value="4" /> 근육형</td></tr>
+                     <td><input type="radio" name="belly" value="1" <%=checkedShow(bodyInfoList, "belly", 1) %>/> 마름</td>
+                     <td><input type="radio" name="belly" value="2" <%=checkedShow(bodyInfoList, "belly", 2) %>/> 보통</td>
+                     <td><input type="radio" name="belly" value="3" <%=checkedShow(bodyInfoList, "belly", 3) %>/> 지방형</td>
+                     <td><input type="radio" name="belly" value="4" <%=checkedShow(bodyInfoList, "belly", 4) %>/> 근육형</td></tr>
                   <tr><td class="labelwidth"><label for="leg">하체</label></td>
-                     <td><input type="radio" name="leg" value="1" checked/> 마름</td>
-                     <td><input type="radio" name="leg" value="2" /> 보통</td>
-                     <td><input type="radio" name="leg" value="3" /> 지방형</td>
-                     <td><input type="radio" name="leg" value="4" /> 근육형</td></tr>
+                     <td><input type="radio" name="leg" value="1" <%=checkedShow(bodyInfoList, "leg", 1) %>/> 마름</td>
+                     <td><input type="radio" name="leg" value="2" <%=checkedShow(bodyInfoList, "leg", 2) %>/> 보통</td>
+                     <td><input type="radio" name="leg" value="3" <%=checkedShow(bodyInfoList, "leg", 3) %>/> 지방형</td>
+                     <td><input type="radio" name="leg" value="4" <%=checkedShow(bodyInfoList, "leg", 4) %>/> 근육형</td></tr>
                </table>
              </fieldset><br>
              <div class="buttons">
-                <input id="submitButton" type="submit" value="제출">&nbsp;&nbsp;
+                <input id="submitButton" type="submit" value="수정">&nbsp;&nbsp;
                 <input id="resetButton" type="reset" value="다시쓰기"/>
              </div><br>
          </form>

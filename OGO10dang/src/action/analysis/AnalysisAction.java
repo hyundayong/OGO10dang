@@ -38,7 +38,7 @@ public class AnalysisAction implements Action {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('먼저 설문조사를 완료해주세요.')");
-			out.println("document.location.href='http://localhost:8088/ogo10dang_work/survey/surveyGenderSelect.jsp'");
+			out.println("document.location.href='http://localhost:8088/ogo0507_1217/survey/surveyGenderSelect.jsp'");
 			out.println("</script>");
 		} else {	// 설문조사를 완료했으면
 			BodyInfo bodyInfoList = null;
@@ -52,13 +52,47 @@ public class AnalysisAction implements Action {
 				bodyInfoList.setGender("W");
 			}
 			AnalysisService analysisService = new AnalysisService();
-			ArrayList<String[]> exerciseList = analysisService.getexerciseList(bodyInfoList);
+			ArrayList<String[]> exerciseList = analysisService.getMatchExercise(bodyInfoList);
+			ArrayList<String[]> exerciseList_four = new ArrayList<String[]>();
 			ArrayList<String[]> foodList = analysisService.getMatchFood(bodyInfoList);
+			ArrayList<String[]> foodList_four = analysisService.getMatchFood(bodyInfoList);
+			if(exerciseList.size() > 4) {
+			int[] randnums = new int[4];
+			for(int i = 0; i < 4; i++) {
+				randnums[i] = (int)(Math.random()*exerciseList.size());
+				for(int j = 0; j < i; j++) {
+					if(randnums[i] == randnums[j]) {
+						i--;
+						break;		}
+					}
+				}
+				for(int i = 0; i < randnums.length; i++) {
+					exerciseList_four.add(i, exerciseList.get(randnums[i]));
+				}
+			} else {
+				exerciseList_four = exerciseList;
+			}
 			
-			request.setAttribute("exerciseList", exerciseList);		// 운동명, 운동 링크 저장
+			if(foodList.size() > 4) {
+				int[] randnums = new int[4];
+				for(int i = 0; i < 4; i++) {
+					randnums[i] = (int)(Math.random()*foodList.size());
+					for(int j = 0; j < i; j++) {
+						if(randnums[i] == randnums[j]) {
+							i--;
+							break;		}
+						}
+					}
+					for(int i = 0; i < randnums.length; i++) {
+						foodList_four.add(i, foodList.get(randnums[i]));
+					}
+				} else {
+					foodList_four = exerciseList;
+				}
+			request.setAttribute("exerciseList", exerciseList_four);		// 운동명, 운동 링크 저장
 			request.setAttribute("bodyInfoList", bodyInfoList);		// 설문조사 결과 모두 저장(실질적으로 bodytype만 필요하긴 함)
-			request.setAttribute("foodList", foodList);
-			forward.setPath("/analysis/bodyAnalysis.jsp");			// 체형 분석 결과 페이지로 이동
+			request.setAttribute("foodList", foodList_four);
+			forward.setPath("/survey/bodyAnalysis.jsp");			// 체형 분석 결과 페이지로 이동
 		}
 		return forward;
 	}

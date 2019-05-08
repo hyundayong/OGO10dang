@@ -8,10 +8,11 @@
 </head>
 <style>
 	.footer {
-    position:relative;
-    bottom:0;
+    position:absolute;
+    top: 1800px;
     width:100%;
-    height:100%;   
+    bottom:0;
+    height:80px;   
     text-align: center;
     padding: 10px;
     background-color: #d9d9d9; 

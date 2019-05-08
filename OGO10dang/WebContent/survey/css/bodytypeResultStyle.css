@@ -1,0 +1,29 @@
+@charset "UTF-8";
+<style>
+	body {
+      width: auto;
+      margin: 200px;
+   }
+   	.bodytype_content {
+   		margin: 110px auto 80px auto;
+   		width: 600px;
+   		font-family: 나눔스퀘어;
+   	}
+	.bodytype_content td {
+		text-align:center;
+
+		padding:10px;
+	}
+	
+	.bodytypetitle {
+		font-family:"Rix고딕 B";
+		font-size : 35px;
+		background-color: #ededed;
+		padding: 10px 0;
+	}
+	.bodytypesub {
+		font-size: 20px;
+		line-height: 1.5em;
+		padding: 10px;
+	}
+</style>
